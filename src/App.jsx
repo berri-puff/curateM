@@ -6,6 +6,7 @@ import Navigation from './components/nav'
 import Header from './components/header'
 import Favourites from './components/favourites'
 import Exhibits from './components/exhibits'
+import Error from './components/error-page'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
     <Route path ="/" element={<Home/>}/>
     <Route path="/favourites" element={<Favourites/>}/>
     <Route path ="/exhibits" element={<Exhibits/>} />
-    
+    <Route path='/*' element={<Error/>}/>
   </Routes>
     </body>
     )
