@@ -7,6 +7,7 @@ import Header from './components/header'
 import Favourites from './components/favourites'
 import Exhibits from './components/exhibits'
 import Error from './components/error-page'
+import UKRegion from './components/uk-region/uk-main-page'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Route path="/favourites" element={<Favourites/>}/>
     <Route path ="/exhibits" element={<Exhibits/>} />
     <Route path='/*' element={<Error/>}/>
+    <Route path='/uk-region' element={<UKRegion/>} />
   </Routes>
     </body>
     )
