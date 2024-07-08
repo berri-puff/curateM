@@ -8,6 +8,9 @@ import Favourites from './components/favourites'
 import Exhibits from './components/exhibits'
 import Error from './components/error-page'
 import UKRegion from './components/uk-region/uk-main-page'
+import UKSingleArt from './components/uk-region/uk-single-art'
+import USRegion from './components/us-region/us-main-page'
+import USSingleArt from './components/us-region/us-single-art'
 
 function App() {
   return (
@@ -19,7 +22,11 @@ function App() {
     <Route path="/favourites" element={<Favourites/>}/>
     <Route path ="/exhibits" element={<Exhibits/>} />
     <Route path='/*' element={<Error/>}/>
-    <Route path='/uk-region' element={<UKRegion/>} />
+    <Route path='/uk' element={<UKRegion/>} />
+    <Route path='/uk/:artid' element={<UKSingleArt/>}/>
+    <Route path='/us' element= {<USRegion/>}/>
+    <Route path='/us/:artid' element= {<USSingleArt/>} />
+
   </Routes>
     </body>
     )
