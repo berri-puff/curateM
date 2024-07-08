@@ -11,10 +11,14 @@ import UKRegion from './components/uk-region/uk-main-page'
 import UKSingleArt from './components/uk-region/uk-single-art'
 import USRegion from './components/us-region/us-main-page'
 import USSingleArt from './components/us-region/us-single-art'
+import { FavouriteProvider } from './context/faves-context'
 
 function App() {
   return (
     <body>
+      <FavouriteProvider>
+
+    
       <Header/>
       <Navigation/>
   <Routes>
@@ -27,7 +31,8 @@ function App() {
     <Route path='/us' element= {<USRegion/>}/>
     <Route path='/us/:artid' element= {<USSingleArt/>} />
 
-  </Routes>
+  </Routes>  
+  </FavouriteProvider>
     </body>
     )
 }
