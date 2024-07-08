@@ -1,10 +1,12 @@
+import { Link} from "react-router-dom"
+
 const Navigation = () =>{
     return <nav>
-        <a>UK Art</a>
-        <a>US Art</a>
-        <a>Favourites</a>
-        <a>My Exhibits</a>
-        <a>Search</a>
+        <Link to="/uk">UK Region</Link>
+        <Link to="/us">USA Region</Link>
+        <Link to="/favourites">Favourites</Link>
+        <Link to="/exhibits">Exhibits</Link>
+        <input type="text" />
     </nav>
 }
 
