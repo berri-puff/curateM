@@ -4,7 +4,7 @@ const app = axios.create({
     baseURL: "https://api.vam.ac.uk/v2"
 })
 export const getsUKArtworks = () =>{
-   return app.get("/objects/search?random=1&page_size=10&page=1").then(({data})=>{
+   return app.get("/objects/search?random=1&page_size=5&page=1").then(({data})=>{
     return data.records
    })
 }

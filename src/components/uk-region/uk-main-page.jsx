@@ -7,10 +7,9 @@ const UKRegion = () => {
     useEffect(()=>{
         getsUKArtworks().then((results)=>{
             setUkArtworks(results)
-          
         })
     }, [])
-  console.log(ukArtworks, 'in the page container')
+  
     return (
         <article>
            <h1>this page will contain all the uk artworks only, calling on the V&A api so far, to add Fitzwilliam later on</h1>
@@ -33,6 +32,9 @@ const UKRegion = () => {
             <li>titles array, [0], title, type</li>
 
            </ul>
+           {ukArtworks.map((artwork)=>{
+               return <li key={artwork.systemNumber}>{artwork["_primaryTitle"]}</li>
+           })}
         </article>
     
     )
