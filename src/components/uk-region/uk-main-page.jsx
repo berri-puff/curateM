@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react"
-import { getsUKArtworks } from "../../../utils/api"
+import { getsRandomUKArtworks } from "../../../utils/api"
 
 const UKRegion = () => {
     const [ukArtworks, setUkArtworks] = useState([])
     const [artCategory, setArtCategory] = useState([])
     useEffect(()=>{
-        getsUKArtworks().then((results)=>{
+        getsRandomUKArtworks().then((results)=>{
             setUkArtworks(results)
         })
     }, [])
-  
+  console.log(ukArtworks)
     return (
         <article>
            <h1>this page will contain all the uk artworks only, calling on the V&A api so far, to add Fitzwilliam later on</h1>
@@ -34,8 +34,14 @@ const UKRegion = () => {
            </ul>
            {ukArtworks.map((artwork)=>{
                return <ol key={artwork.systemNumber}>
+
                 <li >{artwork.objectType}</li>
                 <img src={artwork["_images"][  "_primary_thumbnail"]}></img>
+                <p>{artwork["_primaryMaker"]["name"]}</p>
+                <p>{artwork["systemNumber"]}</p>
+                <p>{artwork["_primaryDate"]}</p>
+                <p>{artwork["_primaryTitle"]}</p>
+                <p>{artwork["_currentLocation"].displayName}</p>
                 </ol>
            })}
         </article>
