@@ -33,7 +33,10 @@ const UKRegion = () => {
 
            </ul>
            {ukArtworks.map((artwork)=>{
-               return <li key={artwork.systemNumber}>{artwork["_primaryTitle"]}</li>
+               return <ol key={artwork.systemNumber}>
+                <li >{artwork.objectType}</li>
+                <img src={artwork["_images"][  "_primary_thumbnail"]}></img>
+                </ol>
            })}
         </article>
     
