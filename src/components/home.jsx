@@ -9,10 +9,13 @@ const Home = ()=>{
             On Curate'M, short for Curate Them, right here you can explore art works from different regions, see any you like? Go ahead and favourite them, even add them to your temporary exhibiton file!
             Currently, Only UK and Us regions are open for business. Get start right now!
         </article>
-        <h2>EXPLORE BY REGION</h2>
-        <Link to='/uk'>UK Art works <FaArrowRight/> </Link>
-        <Link to='/us'>USA Art works <FaArrowRight/></Link>
-        <h2>Add some artworks auto scrolling down?</h2>
+       
+        <h2>formatting idea: </h2>
+        <p>screenshots of each of the component and how it works </p>
+        <p>as the page scrolls down, the previous component fades out</p>
+        <h2>GET STARTED</h2>
+        <Link to='/uk'>UK <FaArrowRight/> </Link>
+        <Link to='/us'>USA <FaArrowRight/></Link>
     </main>
 }
 
