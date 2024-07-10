@@ -4,12 +4,21 @@ import { getsRandomUKArtworks } from "../../../utils/api"
 const UKRegion = () => {
     const [ukArtworks, setUkArtworks] = useState([])
     const [artCategory, setArtCategory] = useState([])
+    const [nextPageClick, setNextPageClick] = useState([false])
+    const [previousePageClick, setPreviousPAgeClick] = useState([false])
     useEffect(()=>{
         getsRandomUKArtworks().then((results)=>{
             setUkArtworks(results)
         })
     }, [])
-  console.log(ukArtworks)
+
+const toNextPage = () =>{
+    console.log('clicky click on the next button')
+}
+const previousPage = () =>{
+    console.log("last page off we go!")
+}
+
     return (
         <article>
            <h1>this page will contain all the uk artworks only, calling on the V&A api so far, to add Fitzwilliam later on</h1>
@@ -24,7 +33,8 @@ const UKRegion = () => {
                 <p>{artwork["_currentLocation"].displayName}</p>
                 </ol>
            })}
-          
+          <button aria-label="next page button" onClick={toNextPage}>Next</button>
+          <button aria-label="previous page button" onClick={previousPage}>Previous</button>
         </article>
     
     )
