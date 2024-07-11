@@ -60,7 +60,7 @@ if (initialLoading) {
       {ukArtworks.map((artwork) => {
         return (
           <ol key ={artwork.systemNumber}>
-            <p>{artwork["_primaryTitle"]}</p>
+            <Link to={`/uk/${artwork.systemNumber}`}> <p>{artwork["_primaryTitle"]}</p> </Link>
             <Link to={`/uk/${artwork.systemNumber}`}><img src={artwork["_images"]["_primary_thumbnail"]}></img> </Link>
             <li>Type: {artwork.objectType}</li>
             <p>By: {artwork["_primaryMaker"]["name"]}</p>

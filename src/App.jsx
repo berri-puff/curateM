@@ -27,7 +27,7 @@ function App() {
     <Route path ="/exhibit" element={<Exhibits/>} />
     <Route path='/*' element={<Error/>}/>
     <Route path='/uk' element={<UKRegion/>} />
-    <Route path='/uk/:artid' element={<UKSingleArt/>}/>
+    <Route path='/uk/:artId' element={<UKSingleArt/>}/>
     <Route path='/us' element= {<USRegion/>}/>
     <Route path='/us/:artid' element= {<USSingleArt/>} />
   </Routes>    
