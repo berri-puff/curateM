@@ -5,23 +5,42 @@ import { Link } from "react-router-dom";
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
   const [artCategory, setArtCategory] = useState([]);
-  const [nextPageClick, setNextPageClick] = useState([false]);
-  const [previousePageClick, setPreviousPAgeClick] = useState([false]);
-  useEffect(() => {
+  const [initialLoading, setInitialLoad] = useState([false]);
+  useEffect(() => { 
+    setInitialLoad(true)
     getsRandomUKArtworks().then((results) => {
-      setUkArtworks(results);
+      setUkArtworks(results);  
+      setInitialLoad(false)
     });
   }, []);
 
   function newBatch() {
+   
     getsRandomUKArtworks().then((results) => {
       setUkArtworks((currentWorks) => {
         return [...currentWorks, ...results];
       });
+    
     });
   }
 
-  return (
+  if (initialLoading) {
+    return (
+        <article>
+        <h1>
+          this page will contain all the uk artworks only, calling on the V&A api
+          so far, to add Fitzwilliam later on
+        </h1>
+        <h2>
+          When clicking on the image, takes to the single arts page, css when
+          hovered over, display some of the core infromation
+        </h2>
+        <h3>Loading</h3>
+      </article>
+    );
+  }
+  else {
+     return (
     <article>
       <h1>
         this page will contain all the uk artworks only, calling on the V&A api
@@ -39,7 +58,6 @@ const UKRegion = () => {
             <Link to={`/uk/${artwork.systemNumber}`}><img src={artwork["_images"]["_primary_thumbnail"]}></img> </Link>
             <li>Type: {artwork.objectType}</li>
             <p>By: {artwork["_primaryMaker"]["name"]}</p>
-            {/* <p>{artwork["_primaryDate"]}</p> */}
             <p>{artwork["_currentLocation"].displayName}</p>
           </ol>
         );
@@ -55,6 +73,8 @@ const UKRegion = () => {
       </button>
     </article>
   );
+  }
+ 
 };
 
 export default UKRegion;
