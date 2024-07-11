@@ -21,7 +21,7 @@ setLoadingState(false)
     })
 }, [])
 console.log(ukSingleArtwork)
-console.log(ukSingleArtwork.images[0], 'iiif code?')
+// console.log(ukSingleArtwork.images[0], 'iiif code?')
 
 if (loadingState) {
     return <h1>Loading...</h1>
@@ -38,7 +38,7 @@ if (loadingState) {
 
 <h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
-
+{ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
 <h3>History: </h3>
 <p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
 {ukSingleArtwork.objectHistory != "" ? <p>{ukSingleArtwork.objectHistory}</p> : null}

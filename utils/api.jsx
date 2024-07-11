@@ -15,3 +15,4 @@ return app.get(`/museumobject/${id}`).then(({data}) =>{
    return data.record
 })
 }
+
