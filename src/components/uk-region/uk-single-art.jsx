@@ -21,6 +21,7 @@ setLoadingState(false)
     })
 }, [])
 console.log(ukSingleArtwork)
+console.log(ukSingleArtwork.images[0], 'iiif code?')
 
 if (loadingState) {
     return <h1>Loading...</h1>
@@ -32,15 +33,17 @@ if (loadingState) {
     </h1>
 
 {ukSingleArtwork.titles.length != 0? <h2>{ukSingleArtwork.titles[0].title} </h2>: <h2>Untitled Artwork</h2>}
-{ukSingleArtwork.accessionYear}
+
 <p>By: {ukSingleArtwork.artistMakerPerson.length != 0? <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span> : <span>Unknown</span>}</p>
 
 <h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
 
 <h3>History: </h3>
+<p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
 {ukSingleArtwork.objectHistory != "" ? <p>{ukSingleArtwork.objectHistory}</p> : null}
 Made in {ukSingleArtwork.placesOfOrigin.length != 0 ? <span>{ukSingleArtwork.placesOfOrigin[0].place["text"]}</span> : <span>Unknown</span>}
+<p> This piece of work is estimated to be made in the {ukSingleArtwork.productionDates.length != 0 ? <span>{ukSingleArtwork.productionDates[0].date.text}</span> : null} </p>
    <p>This artwork was recorded on <span>{ukSingleArtwork.recordCreationDate}</span> in V7A Collection system.</p>
 
    <h3>Want to find it? </h3>
