@@ -11,13 +11,17 @@ const UKRegion = () => {
             setUkArtworks(results)
         })
     }, [])
-
+   let count = 1
 function newBatch () {
-console.log('clicked once')
-getsRandomUKArtworks().then((results)=>{
-setUkArtworks(results)
-console.log(ukArtworks)
-})
+    count ++
+
+
+getsRandomUKArtworks(count)
+//.then((results)=>{
+// // setUkArtworks((currentukArtworks)=> {return {...currentukArtworks, currentukArtworks: results}})
+// console.log(ukArtworks, 'new artworks?')
+
+// })
 }
 
 
@@ -25,18 +29,25 @@ console.log(ukArtworks)
         <article>
            <h1>this page will contain all the uk artworks only, calling on the V&A api so far, to add Fitzwilliam later on</h1>
             <h2>When clicking on the image, takes to the single arts page, css when hovered over, display some of the core infromation</h2>
+            <ol>
            {ukArtworks.map((artwork)=>{
-               return <ol key={artwork.systemNumber}>
-                <p>{artwork["_primaryTitle"]}</p>
-                <img src={artwork["_images"][  "_primary_thumbnail"]}></img>
+               return (
+                <>
+                  <p>{artwork["_primaryTitle"]}</p>
+                <img src={artwork["_images"]["_primary_thumbnail"]}></img>
                 <li >Type: {artwork.objectType}</li>
                 <p>By: {artwork["_primaryMaker"]["name"]}</p>
                 {/* <p>{artwork["_primaryDate"]}</p> */}
                 <p>{artwork["_currentLocation"].displayName}</p>
-                </ol>
+               
+                </>
+               
+               )
+               
            })}
+            </ol>
           <button aria-label="new batch button" onClick={()=>{
-            newBatch(+1)
+            newBatch()
           }}>New Batch</button>
         </article>
     
