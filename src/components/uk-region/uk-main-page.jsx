@@ -12,14 +12,15 @@ const UKRegion = () => {
     getsRandomUKArtworks().then((results) => {
       setUkArtworks(results);  
       setInitialLoad(false)
-    }).catch((error)=>{
-        setInitialLoad(false)
-        setError(error.response)
+    })
+    .catch((error)=>{
+       setError(error.response) 
+       setInitialLoad(false)
+        
     })
   }, []);
 
   function newBatch() {
-   
     getsRandomUKArtworks().then((results) => {
       setUkArtworks((currentWorks) => {
         return [...currentWorks, ...results];
@@ -27,10 +28,8 @@ const UKRegion = () => {
     
     });
   }
-if (error) {
-    return (<h1>sorry something went wrong</h1>)
-}
-else if (initialLoading) {
+
+if (initialLoading) {
     return (
         <article>
         <h1>
@@ -45,6 +44,7 @@ else if (initialLoading) {
       </article>
     );
   }
+
   else {
      return (
     <article>
