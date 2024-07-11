@@ -12,12 +12,14 @@ const UKRegion = () => {
         })
     }, [])
 
-const toNextPage = () =>{
-    console.log('clicky click on the next button')
+function newBatch () {
+console.log('clicked once')
+getsRandomUKArtworks().then((results)=>{
+setUkArtworks(results)
+console.log(ukArtworks)
+})
 }
-const previousPage = () =>{
-    console.log("last page off we go!")
-}
+
 
     return (
         <article>
@@ -33,8 +35,9 @@ const previousPage = () =>{
                 <p>{artwork["_currentLocation"].displayName}</p>
                 </ol>
            })}
-          <button aria-label="next page button" onClick={toNextPage}>Next</button>
-          <button aria-label="previous page button" onClick={previousPage}>Previous</button>
+          <button aria-label="new batch button" onClick={()=>{
+            newBatch(+1)
+          }}>New Batch</button>
         </article>
     
     )
