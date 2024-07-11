@@ -35,9 +35,23 @@ if (loadingState) {
 {ukSingleArtwork.accessionYear}
 <p>By: {ukSingleArtwork.artistMakerPerson.length != 0? <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span> : <span>Unknown</span>}</p>
 
-<h3>Further Information: </h3>
+<h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
-    </article>
+
+<h3>History: </h3>
+{ukSingleArtwork.objectHistory != "" ? <p>{ukSingleArtwork.objectHistory}</p> : null}
+Made in {ukSingleArtwork.placesOfOrigin.length != 0 ? <span>{ukSingleArtwork.placesOfOrigin[0].place["text"]}</span> : <span>Unknown</span>}
+   <p>This artwork was recorded on <span>{ukSingleArtwork.recordCreationDate}</span> in V7A Collection system.</p>
+
+   <h3>Want to find it? </h3>
+   <p>It is currently kept in Victoria and Albert Museum</p>
+   <ul>
+   <li>BOX: {ukSingleArtwork.galleryLocations[0].box}</li>
+   <li>CASE: {ukSingleArtwork.galleryLocations[0].case}</li>
+   <li>SHELF: {ukSingleArtwork.galleryLocations[0].shelf}</li>
+   </ul>
+   </article>
+
     )
     
 }
