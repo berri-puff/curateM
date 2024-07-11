@@ -11,17 +11,18 @@ const UKRegion = () => {
             setUkArtworks(results)
         })
     }, [])
-   let count = 1
+
 function newBatch () {
-    count ++
 
+getsRandomUKArtworks()
+.then((results)=>{
+setUkArtworks((currentWorks)=> 
+{return [...currentWorks, ...results]}
+)
+console.log(ukArtworks, 'added?')
+// console.log(ukArtworks, 'new artworks after new pages')
 
-getsRandomUKArtworks(count)
-//.then((results)=>{
-// // setUkArtworks((currentukArtworks)=> {return {...currentukArtworks, currentukArtworks: results}})
-// console.log(ukArtworks, 'new artworks?')
-
-// })
+})
 }
 
 
