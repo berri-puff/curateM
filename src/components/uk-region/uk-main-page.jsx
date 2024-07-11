@@ -6,12 +6,16 @@ const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
   const [artCategory, setArtCategory] = useState([]);
   const [initialLoading, setInitialLoad] = useState([false]);
+  const [error, setError] = useState([null])
   useEffect(() => { 
     setInitialLoad(true)
     getsRandomUKArtworks().then((results) => {
       setUkArtworks(results);  
       setInitialLoad(false)
-    });
+    }).catch((error)=>{
+        setInitialLoad(false)
+        setError(error.response)
+    })
   }, []);
 
   function newBatch() {
@@ -23,8 +27,10 @@ const UKRegion = () => {
     
     });
   }
-
-  if (initialLoading) {
+if (error) {
+    return (<h1>sorry something went wrong</h1>)
+}
+else if (initialLoading) {
     return (
         <article>
         <h1>
