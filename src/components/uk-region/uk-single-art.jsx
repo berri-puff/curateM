@@ -7,7 +7,7 @@ const UKSingleArt = () =>{
     const {faves, setFaves} = useContext(FavouriteContext)
     const [artCategory, setArtCategory] = useState([])
     const [loadingState, setLoadingState] = useState([false])
-    //use params here to get the artwork id 
+    const [error, setError] = useState([null])
 
 const {artId} = useParams()
 
@@ -17,19 +17,31 @@ useEffect(() =>{
 setUkSingleArtwork(result)
 setLoadingState(false)
     }).catch((error) =>{
-
+        setLoadingState(false)
+        setError(error.response)
     })
 }, [])
-console.log(ukSingleArtwork)
-// console.log(ukSingleArtwork.images[0], 'iiif code?')
+// console.log(ukSingleArtwork)
 
-if (loadingState) {
+const favouriteArtwork = () => {
+    setFaves(currentFaves => {
+        if (Array.isArray(currentFaves)) {
+            return [...currentFaves, ukSingleArtwork];
+        } else {
+            return [ukSingleArtwork];
+        }
+    });
+}
+
+
+if (ukSingleArtwork.length === 0 && error) {
+    return <h1>Error</h1>
+}
+else if (loadingState) {
     return <h1>Loading...</h1>
 }else return ( <article>
         <h1>This will contain a single piece of art once user clicks on it/interacts
-        may also have some suggested art via artist names 
-        {faves}
-      
+        may also have some suggested art via artist names       
     </h1>
 
 {ukSingleArtwork.titles.length != 0? <h2>{ukSingleArtwork.titles[0].title} </h2>: <h2>Untitled Artwork</h2>}
@@ -39,6 +51,14 @@ if (loadingState) {
 <h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
 {ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
+
+
+<button aria-label="favourite button" onClick={() => {
+              favouriteArtwork();
+            }}>Favourite</button>
+
+
+
 <h3>History: </h3>
 <p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
 {ukSingleArtwork.objectHistory != "" ? <p>{ukSingleArtwork.objectHistory}</p> : null}
