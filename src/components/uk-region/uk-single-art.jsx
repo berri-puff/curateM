@@ -7,6 +7,7 @@ const UKSingleArt = () =>{
     const {faves, setFaves} = useContext(FavouriteContext)
     const [artCategory, setArtCategory] = useState([])
     const [loadingState, setLoadingState] = useState([false])
+    const [error, setError] = useState([null])
     //use params here to get the artwork id 
 
 const {artId} = useParams()
@@ -17,13 +18,16 @@ useEffect(() =>{
 setUkSingleArtwork(result)
 setLoadingState(false)
     }).catch((error) =>{
-
+        setLoadingState(false)
+        setError(error.response)
     })
 }, [])
 console.log(ukSingleArtwork)
-// console.log(ukSingleArtwork.images[0], 'iiif code?')
 
-if (loadingState) {
+if (ukSingleArtwork.length === 0 && error) {
+    return <h1>Error</h1>
+}
+else if (loadingState) {
     return <h1>Loading...</h1>
 }else return ( <article>
         <h1>This will contain a single piece of art once user clicks on it/interacts
