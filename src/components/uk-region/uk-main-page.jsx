@@ -19,7 +19,7 @@ const UKRegion = () => {
         
     })
   }, []);
-console.log(error)
+
   function newBatch() {
     getsRandomUKArtworks().then((results) => {
       setUkArtworks((currentWorks) => {
@@ -28,10 +28,10 @@ console.log(error)
     
     });
   }
-if (!ukArtworks.length && error) {
-  return <h1>ERROR {error.detail[0].msg}</h1>
-}
-else if (initialLoading) {
+// if (ukArtworks.length === 0 && error) {
+//   return <h1>ERROR {error.detail[0].msg}</h1>
+// }
+if (initialLoading) {
     return (
         <article>
         <h1>
