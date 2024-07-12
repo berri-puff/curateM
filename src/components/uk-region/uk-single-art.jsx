@@ -8,7 +8,6 @@ const UKSingleArt = () =>{
     const [artCategory, setArtCategory] = useState([])
     const [loadingState, setLoadingState] = useState([false])
     const [error, setError] = useState([null])
-    //use params here to get the artwork id 
 
 const {artId} = useParams()
 

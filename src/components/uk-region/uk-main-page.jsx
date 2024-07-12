@@ -14,12 +14,12 @@ const UKRegion = () => {
       setInitialLoad(false)
     })
     .catch((error)=>{
-       setError(error.response) 
+       setError(error.response.data) 
        setInitialLoad(false)
         
     })
   }, []);
-
+console.log(error)
   function newBatch() {
     getsRandomUKArtworks().then((results) => {
       setUkArtworks((currentWorks) => {
@@ -28,8 +28,10 @@ const UKRegion = () => {
     
     });
   }
-
-if (initialLoading) {
+if (!ukArtworks.length && error) {
+  return <h1>ERROR {error.detail[0].msg}</h1>
+}
+else if (initialLoading) {
     return (
         <article>
         <h1>
