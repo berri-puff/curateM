@@ -24,11 +24,13 @@ setLoadingState(false)
 // console.log(ukSingleArtwork)
 
 const favouriteArtwork = () => {
-    setFaves(ukSingleArtwork)
-    console.log(faves, 'in uk page')
-    console.log('added Once')
-    
-    //set toast saying successfully added to favourite artwork
+    setFaves(currentFaves => {
+        if (Array.isArray(currentFaves)) {
+            return [...currentFaves, ukSingleArtwork];
+        } else {
+            return [ukSingleArtwork];
+        }
+    });
 }
 
 
