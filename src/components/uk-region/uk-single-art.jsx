@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import { FavouriteContext } from "../../context/faves-context"
 import { useParams } from "react-router-dom"
+import { ExhibitContext } from "../../context/exhibit-context"
 import { getsUkArtworkById } from "../../../utils/api"
 const UKSingleArt = () =>{
     const [ukSingleArtwork, setUkSingleArtwork] = useState([])
     const {faves, setFaves} = useContext(FavouriteContext)
+    const {exhibit, setExhibit} = useContext(ExhibitContext)
     const [artCategory, setArtCategory] = useState([])
     const [loadingState, setLoadingState] = useState([false])
     const [error, setError] = useState([null])
@@ -21,7 +23,7 @@ setLoadingState(false)
         setError(error.response)
     })
 }, [])
-// console.log(ukSingleArtwork)
+
 
 const favouriteArtwork = () => {
     setFaves(currentFaves => {
@@ -34,7 +36,8 @@ const favouriteArtwork = () => {
 }
 
 const addToExhibit = ()=>{
-    console.log('adding to exihibit list ')
+   setExhibit(ukSingleArtwork)
+ 
 }
 
 if (ukSingleArtwork.length === 0 && error) {
