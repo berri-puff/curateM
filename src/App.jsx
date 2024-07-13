@@ -24,7 +24,7 @@ function App() {
   <Routes>
     <Route path ="/" element={<Home/>}/>
     <Route path="/favourites" element={<Favourites/>}/>
-    <Route path ="/exhibit" element={<Exhibits/>} />
+    <Route path ="/exhibits" element={<Exhibits/>} />
     <Route path='/*' element={<Error/>}/>
     <Route path='/uk' element={<UKRegion/>} />
     <Route path='/uk/:artId' element={<UKSingleArt/>}/>

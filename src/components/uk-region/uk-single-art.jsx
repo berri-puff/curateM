@@ -33,6 +33,9 @@ const favouriteArtwork = () => {
     });
 }
 
+const addToExhibit = ()=>{
+    console.log('adding to exihibit list ')
+}
 
 if (ukSingleArtwork.length === 0 && error) {
     return <h1>Error</h1>
@@ -53,11 +56,12 @@ else if (loadingState) {
 {ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
 
 
-<button aria-label="favourite button" onClick={() => {
+<button aria-label="favourite" onClick={() => {
               favouriteArtwork();
             }}>Favourite</button>
 
 
+<button aria-label="add to exhibit" onClick={()=>{addToExhibit()}}>Add To My Exhibit</button>
 
 <h3>History: </h3>
 <p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
