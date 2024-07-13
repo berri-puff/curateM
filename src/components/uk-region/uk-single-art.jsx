@@ -39,11 +39,9 @@ const addToExhibit = ()=>{
 
    setExhibit(currentExhibit => {
     if (Array.isArray(currentExhibit)) {
-        console.log('added in the uk page')
         return [...currentExhibit, ukSingleArtwork]
     }
     else {
-        console.log('added in the uk page')
         return [ukSingleArtwork]
     }
    })
