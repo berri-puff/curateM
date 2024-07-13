@@ -36,18 +36,17 @@ const favouriteArtwork = () => {
 }
 
 const addToExhibit = ()=>{
-setExhibit(ukSingleArtwork)
-console.log('added in the uk page')
-//    setExhibit(currentExhibit => {
-//     if (Array.isArray(currentExhibit)) {
-//         console.log('added in the uk page')
-//         return [...currentExhibit, ukSingleArtwork]
-//     }
-//     else {
-//         console.log('added in the uk page')
-//         return [ukSingleArtwork]
-//     }
-//    })
+
+   setExhibit(currentExhibit => {
+    if (Array.isArray(currentExhibit)) {
+        console.log('added in the uk page')
+        return [...currentExhibit, ukSingleArtwork]
+    }
+    else {
+        console.log('added in the uk page')
+        return [ukSingleArtwork]
+    }
+   })
  
 }
 
