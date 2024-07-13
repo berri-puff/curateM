@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import { FavouriteContext } from "../../context/faves-context"
 import { useParams } from "react-router-dom"
+import { ExhibitContext } from "../../context/exhibit-context"
 import { getsUkArtworkById } from "../../../utils/api"
 const UKSingleArt = () =>{
     const [ukSingleArtwork, setUkSingleArtwork] = useState([])
     const {faves, setFaves} = useContext(FavouriteContext)
+    const {exhibit, setExhibit} = useContext(ExhibitContext)
     const [artCategory, setArtCategory] = useState([])
     const [loadingState, setLoadingState] = useState([false])
     const [error, setError] = useState([null])
@@ -21,7 +23,7 @@ setLoadingState(false)
         setError(error.response)
     })
 }, [])
-// console.log(ukSingleArtwork)
+
 
 const favouriteArtwork = () => {
     setFaves(currentFaves => {
@@ -33,6 +35,20 @@ const favouriteArtwork = () => {
     });
 }
 
+const addToExhibit = ()=>{
+
+   setExhibit(currentExhibit => {
+    if (Array.isArray(currentExhibit)) {
+        console.log('added in the uk page')
+        return [...currentExhibit, ukSingleArtwork]
+    }
+    else {
+        console.log('added in the uk page')
+        return [ukSingleArtwork]
+    }
+   })
+ 
+}
 
 if (ukSingleArtwork.length === 0 && error) {
     return <h1>Error</h1>
@@ -53,11 +69,12 @@ else if (loadingState) {
 {ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
 
 
-<button aria-label="favourite button" onClick={() => {
+<button aria-label="favourite" onClick={() => {
               favouriteArtwork();
             }}>Favourite</button>
 
 
+<button aria-label="add to exhibit" onClick={()=>{addToExhibit()}}>Add To My Exhibit</button>
 
 <h3>History: </h3>
 <p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
