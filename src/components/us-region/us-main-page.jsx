@@ -1,8 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getUsArtworks } from "../../../utils/api"
 
 const USRegion = () =>{
     const [usArtworks, setUsArtworks] = useState([])
     const [artCategory, setArtCategory] = useState([])
+
+    useEffect(()=>{
+        getUsArtworks().then((results)=>{
+            console.log(results.data)
+        })
+    }, [])
     return <h1>This is the us region all pages with drop down category selection </h1>
 }
 
