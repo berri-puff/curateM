@@ -24,7 +24,8 @@ return (
                   <Link key={artwork.id} to={`us/${artwork.id}`}>
              <ol>
                    <li>{artwork.title}</li>
-                   <img src={imageUrl} width={200} height="auto"></img>
+                   {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <h3>No image</h3>}
+                  
 
                    <li>By: {artwork.creators[0].description}</li>
                 </ol>
