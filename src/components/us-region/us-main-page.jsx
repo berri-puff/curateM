@@ -7,9 +7,10 @@ const USRegion = () =>{
 
     useEffect(()=>{
         getUsArtworks().then((results)=>{
-            console.log(results.data)
+            setUsArtworks(results.data)
         })
     }, [])
+    console.log(usArtworks[0])
     return <h1>This is the us region all pages with drop down category selection </h1>
 }
 
