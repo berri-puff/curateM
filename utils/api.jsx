@@ -16,16 +16,12 @@ return app.get(`/museumobject/${id}`).then(({data}) =>{
 })
 }
 
-export const getUsArtworks = (num) =>{
-    console.log(num, 'api calling')
-    if (!num) {
-         return app.get(`https://openaccess-api.clevelandart.org/api/artworks/?limit=10`).then(({data}) =>{
+export const getUsArtworks = () =>{
+
+         return app.get(`https://openaccess-api.clevelandart.org/api/artworks/`).then(({data}) =>{
        return data
     })
-    }
-   else { return app.get(`https://openaccess-api.clevelandart.org/api/artworks/?limit=${num}`).then(({data}) =>{
-    return data
- })}
+    
 }
 
 export const getSingleUsWork = (id) =>{
