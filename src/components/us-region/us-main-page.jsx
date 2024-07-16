@@ -19,7 +19,7 @@ const USRegion = () =>{
     const handleNextBatchBtn = () =>{
     setMinimum((currentMin)=> currentMin += 20)
     setMaximum((currentMax)=> currentMax += 20)
-    console.log(minimum, maximum, 'in the function')
+  
 
 }
 const handlepreviousBatchBtn = () =>{
