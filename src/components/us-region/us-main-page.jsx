@@ -11,8 +11,15 @@ const USRegion = () =>{
             setUsArtworks(results.data)
         })
     }, [])
-let lowerLimit = 0
-let upperLimit = 19
+
+    let startingNum = 20
+    const moreArtworks = () =>{
+       getUsArtworks(startingNum).then(({data})=>{
+      
+setUsArtworks(data) 
+       })
+   startingNum = startingNum + 10 
+console.log(startingNum, 'in main after setting ') }
 
 return (
     <article>
@@ -34,7 +41,7 @@ return (
             )
             
          })}
-          
+          <button aria-label="load more work" onClick={()=>{moreArtworks()}}>More</button>
                
     </article>
    )
