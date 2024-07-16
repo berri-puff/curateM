@@ -16,3 +16,17 @@ return app.get(`/museumobject/${id}`).then(({data}) =>{
 })
 }
 
+export const getUsArtworks = () =>{
+
+         return app.get(`https://openaccess-api.clevelandart.org/api/artworks/`).then(({data}) =>{
+       return data
+    })
+    
+}
+
+export const getSingleUsWork = (id) =>{
+    console.log(id)
+    return app.get(`https://openaccess-api.clevelandart.org/api/artworks/${id}`).then(({data})=>{
+        return data
+    })
+}
