@@ -29,7 +29,7 @@ function App() {
     <Route path='/uk' element={<UKRegion/>} />
     <Route path='/uk/:artId' element={<UKSingleArt/>}/>
     <Route path='/us' element= {<USRegion/>}/>
-    <Route path='/us/:artid' element= {<USSingleArt/>} />
+    <Route path='/us/:artId' element= {<USSingleArt/>} />
   </Routes>    
   </ExhibitProvider>
   </FavouriteProvider>

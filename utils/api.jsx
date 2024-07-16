@@ -28,6 +28,9 @@ export const getUsArtworks = (num) =>{
  })}
 }
 
-export const getSingleUsWork = () =>{
-    
+export const getSingleUsWork = (id) =>{
+    console.log(id)
+    return app.get(`https://openaccess-api.clevelandart.org/api/artworks/${id}`).then(({data})=>{
+        return data
+    })
 }
