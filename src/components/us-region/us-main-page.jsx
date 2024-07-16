@@ -5,21 +5,23 @@ import { Link } from "react-router-dom"
 const USRegion = () =>{
     const [usArtworks, setUsArtworks] = useState([])
     const [artCategory, setArtCategory] = useState([])
-
+   let startingNum = 20
     useEffect(()=>{
         getUsArtworks().then((results)=>{
             setUsArtworks(results.data)
         })
     }, [])
 
-    let startingNum = 20
+ 
     const moreArtworks = () =>{
-       getUsArtworks(startingNum).then(({data})=>{
-      
-setUsArtworks(data) 
+       getUsArtworks(startingNum).then((results)=>{
+        setUsArtworks(results.data);
+           startingNum += 10 
+           console.log(startingNum, 'in main after setting ')
        })
-   startingNum = startingNum + 10 
-console.log(startingNum, 'in main after setting ') }
+
+
+}
 
 return (
     <article>
@@ -28,7 +30,7 @@ return (
          {usArtworks.map((artwork) =>{
            const imageUrl = artwork?.alternate_images[0]?.print?.url
             return (
-                  <Link key={artwork.id} to={`us/${artwork.id}`}>
+                  <Link key={artwork.id} to={`/us/${artwork.id}`}>
              <ol>
                    <li>{artwork.title}</li>
                    {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <h3>No image</h3>}

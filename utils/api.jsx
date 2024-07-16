@@ -27,3 +27,7 @@ export const getUsArtworks = (num) =>{
     return data
  })}
 }
+
+export const getSingleUsWork = () =>{
+    
+}
