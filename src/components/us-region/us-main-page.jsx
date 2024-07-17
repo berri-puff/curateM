@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getUsArtworks } from "../../../utils/api"
+import { getsUsWorkbyKeyword, getUsArtworks } from "../../../utils/api"
 import { Link } from "react-router-dom"
 
 const USRegion = () =>{
@@ -39,8 +39,22 @@ const handleSearchQuery = (event) =>{
     setSearchKeyword(event.target.value)
 }
 
+const queryUsArtworks = (event) => {
+    setLoading(true)
+    event.preventDefault()
+   getsUsWorkbyKeyword(searchKeyword).then((results)=>{
+    setLoading(false)
+    setUsArtworks(results.data)
+    setSearchKeyword('')
+   })
+}
+
 if (loading) {
-    return <h1>Currently Loading</h1>
+    return (
+        <article>
+             <h1>Currently Loading</h1>
+        </article>
+   )
 }
 else if (error && usArtworks.length === 0) {
 return <h1>opps, something went wrong, {error.message}</h1>
@@ -51,7 +65,8 @@ else {
 return (
     <article>
          <h1>US Artworks</h1>
-         <label htmlFor="keyword Search">
+         <form onSubmit={queryUsArtworks}>
+             <label htmlFor="keyword Search">
           Keyword Search
         <input
           className="keyword search"
@@ -64,6 +79,9 @@ return (
             required
           />
         </label>
+        <button>Curate!</button>
+         </form>
+        
          {filteredArtworks.map((artwork) =>{
            const imageUrl = artwork?.alternate_images[0]?.print?.url
             return (
