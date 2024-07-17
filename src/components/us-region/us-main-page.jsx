@@ -41,7 +41,7 @@ return (
                    {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <h3>No image</h3>}
                   
 
-                <li>By  {artwork.creators.length !=0? <li>{artwork.creators[0].description}</li> : <li>Unknown</li>}</li>
+                <li>By  {artwork.creators.length !=0? <span>{artwork.creators[0].description}</span> : <span>Unknown</span>}</li>
                 </ol>
         
             </Link>
