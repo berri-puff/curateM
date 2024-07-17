@@ -35,7 +35,9 @@ const handlepreviousBatchBtn = () =>{
     setMaximum((currentMax)=> currentMax -= 10)
 }
 
-
+const handleSearchQuery = (event) =>{
+    setSearchKeyword(event.target.value)
+}
 
 if (loading) {
     return <h1>Currently Loading</h1>
@@ -56,8 +58,8 @@ return (
             id="searchInput"
             type="text"
             placeholder="keywords: paint"
-            // onChange={}
-            // value={newKeyword}
+            onChange={handleSearchQuery}
+            value={searchKeyword}
             resize={"none"}
             required
           />
