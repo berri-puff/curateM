@@ -7,10 +7,18 @@ const USRegion = () =>{
     const [artCategory, setArtCategory] = useState([])
     const [minimum, setMinimum] = useState(0)
     const [maximum, setMaximum] = useState(19)
+    const [error, setError] = useState([null])
+    const [loading, setLoading] = useState(false)
   
     useEffect(()=>{
+        setLoading(true)
         getUsArtworks().then((results)=>{
             setUsArtworks(results.data)
+            setLoading(false)
+        }).catch((err) =>{
+            console.log(err)
+            setLoading(false)
+            setError(err)
         })
     }, [])
 
@@ -27,6 +35,14 @@ const handlepreviousBatchBtn = () =>{
     setMaximum((currentMax)=> currentMax -= 10)
 }
 
+if (loading) {
+    return <h1>Currently Loading</h1>
+}
+else if (error && usArtworks.length === 0) {
+return <h1>opps, something went wrong, {error.message}</h1>
+}
+else {
+
 
 return (
     <article>
@@ -41,7 +57,7 @@ return (
                    {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <h3>No image</h3>}
                   
 
-                <li>By  {artwork.creators.length !=0? <li>{artwork.creators[0].description}</li> : <li>Unknown</li>}</li>
+                <li>By  {artwork.creators.length !=0? <span>{artwork.creators[0].description}</span> : <span>Unknown</span>}</li>
                 </ol>
         
             </Link>
@@ -53,6 +69,7 @@ return (
             <button aria-label="Next batch" onClick={()=>{handleNextBatchBtn()}}>Next</button>      
     </article>
    )
+}
 }
 
 export default USRegion

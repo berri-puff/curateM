@@ -14,6 +14,7 @@ const UKRegion = () => {
       setInitialLoad(false)
     })
     .catch((error)=>{
+      setInitialLoad(false)
        setError(error.response.data) 
        setInitialLoad(false)
         
@@ -28,10 +29,10 @@ const UKRegion = () => {
     
     });
   }
-// if (ukArtworks.length === 0 && error) {
-//   return <h1>ERROR {error.detail[0].msg}</h1>
-// }
-if (initialLoading) {
+if (ukArtworks.length === 0 && error) {
+  return <h1>ERROR </h1>
+}
+else if (initialLoading) {
     return (
         <article>
         <h1>
