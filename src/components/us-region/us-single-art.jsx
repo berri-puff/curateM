@@ -46,7 +46,7 @@ const USSingleArt = () => {
 if(loading) {
   return <h1>Loading...</h1>
 }
-else if (error) {
+else if (error && usSingleArtwork.length === 0) {
   return <h1>Oppps, something went wrong retrieving your artwork </h1>
 }
   if (usSingleArtwork.length != 0 && loading === false) {

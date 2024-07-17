@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const USRegion = () =>{
     const [usArtworks, setUsArtworks] = useState([])
-    const [artCategory, setArtCategory] = useState([])
+    const [searchKeyword, setSearchKeyword] = useState('')
     const [minimum, setMinimum] = useState(0)
     const [maximum, setMaximum] = useState(19)
     const [error, setError] = useState([null])
@@ -35,6 +35,8 @@ const handlepreviousBatchBtn = () =>{
     setMaximum((currentMax)=> currentMax -= 10)
 }
 
+
+
 if (loading) {
     return <h1>Currently Loading</h1>
 }
@@ -46,8 +48,20 @@ else {
 
 return (
     <article>
-         <h1>This is the us region all pages with drop down category selection </h1>
-        
+         <h1>US Artworks</h1>
+         <label htmlFor="keyword Search">
+          Keyword Search
+        <input
+          className="keyword search"
+            id="searchInput"
+            type="text"
+            placeholder="keywords: paint"
+            // onChange={}
+            // value={newKeyword}
+            resize={"none"}
+            required
+          />
+        </label>
          {filteredArtworks.map((artwork) =>{
            const imageUrl = artwork?.alternate_images[0]?.print?.url
             return (
