@@ -9,14 +9,20 @@ const USSingleArt = () => {
   const [usSingleArtwork, setUsSingleArtwork] = useState([]);
   const { faves, setFaves } = useContext(FavouriteContext);
   const { exhibit, setExhibit } = useContext(ExhibitContext);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState([null])
   const { artId } = useParams();
 
   useEffect(() => {
     getSingleUsWork(artId).then((result) => {
       setUsSingleArtwork(result.data);
-    });
+    }).catch((error) =>{
+      setLoading(false)
+      console.log(error.response.data.detail)
+      setError(error.response)
+    })
   }, []);
-  console.log(usSingleArtwork);
+
   const favouriteArtwork = () => {
     setFaves((currentFaves) => {
       if (Array.isArray(currentFaves)) {
@@ -37,8 +43,13 @@ const USSingleArt = () => {
     });
   };
 
-
-  if (usSingleArtwork.length != 0) {
+if(loading) {
+  return <h1>Loading...</h1>
+}
+else if (error) {
+  return <h1>Oppps, something went wrong retrieving your artwork </h1>
+}
+  if (usSingleArtwork.length != 0 && loading === false) {
     return (
       <article>
         <h1>This will contain one single us art piece and their information</h1>
