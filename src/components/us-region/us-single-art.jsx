@@ -37,10 +37,6 @@ const USSingleArt = () => {
     });
   };
 
-// if (usSingleArtwork.length != 0) {
-//   const formattedDate = splitTime(usSingleArtwork.accession_date)
-// } 
-
 
   if (usSingleArtwork.length != 0) {
     return (
