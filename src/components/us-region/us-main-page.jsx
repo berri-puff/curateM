@@ -9,7 +9,7 @@ const USRegion = () =>{
     const [maximum, setMaximum] = useState(19)
     const [error, setError] = useState([null])
     const [loading, setLoading] = useState(false)
-  
+  const [disableButton, setDisableBtn] = useState(false)
     useEffect(()=>{
         setLoading(true)
         getUsArtworks().then((results)=>{
@@ -40,9 +40,11 @@ const handleSearchQuery = (event) =>{
 }
 
 const queryUsArtworks = (event) => {
+    setDisableBtn(true)
     setLoading(true)
     event.preventDefault()
    getsUsWorkbyKeyword(searchKeyword).then((results)=>{
+    setDisableBtn(false)
     setLoading(false)
     setUsArtworks(results.data)
     setSearchKeyword('')
@@ -52,7 +54,24 @@ const queryUsArtworks = (event) => {
 if (loading) {
     return (
         <article>
-             <h1>Currently Loading</h1>
+            <h1>US Artworks</h1>
+            <form onSubmit={queryUsArtworks}>
+             <label htmlFor="keyword Search">
+          Keyword Search
+        <input
+          className="keyword search"
+            id="searchInput"
+            type="text"
+            placeholder="keywords: paint"
+            onChange={handleSearchQuery}
+            value={searchKeyword}
+            resize={"none"}
+            required
+          />
+        </label>
+        <button disabled={disableButton}>Curate!</button>
+         </form>
+             <h2>Currently Loading</h2>
         </article>
    )
 }
@@ -79,7 +98,7 @@ return (
             required
           />
         </label>
-        <button>Curate!</button>
+        <button disabled={disableButton}>Curate!</button>
          </form>
         
          {filteredArtworks.map((artwork) =>{
