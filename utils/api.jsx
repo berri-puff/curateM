@@ -3,9 +3,9 @@ import axios from "axios";
 const app = axios.create({
   baseURL: "https://api.vam.ac.uk/v2",
 });
-export const getsRandomUKArtworks = () => {
+export const getsRandomUKArtworks = (pageNum) => {
   return app
-    .get("/objects/search?random=1&page_size=20&page=1")
+    .get(`/objects/search?random=1&page_size=20&page=${pageNum}`)
     .then(({ data }) => {
       return data.records;
     });
@@ -42,8 +42,6 @@ export const getsUsWorkbyKeyword = (keyword) => {
 };
 
 export const getsUkWorkbyfilters = (pageNum, category) => {
-  console.log(pageNum, "through the api");
-console.log(category, 'with us through api on more artwork')
   return app
     .get(
       `https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=${pageNum}`

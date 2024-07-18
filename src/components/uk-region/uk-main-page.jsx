@@ -10,7 +10,8 @@ const UKRegion = () => {
   const [pageCount, setPageCount] = useState(1)
   useEffect(() => {
     setInitialLoad(true);
-    getsRandomUKArtworks()
+let pageInStr = pageCount.toString()
+    getsRandomUKArtworks(pageInStr)
       .then((results) => {
         setUkArtworks(results);
         setInitialLoad(false);
@@ -23,14 +24,14 @@ const UKRegion = () => {
   }, []);
 
   function handleMoreBtn() {
-    if (!pageCount) {
-      getsRandomUKArtworks().then((results) => {
+    if (!categoryFilter) {
+      let pageInStr = pageCount.toString()
+      getsRandomUKArtworks(pageInStr).then((results) => {
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
       });
     } else {
-      console.log(categoryFilter, 'still with us ')
        let pageInStr = pageCount.toString();
       getsUkWorkbyfilters(pageInStr, categoryFilter).then((results) => {
         setUkArtworks((currentWorks) => {
