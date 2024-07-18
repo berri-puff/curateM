@@ -7,12 +7,13 @@ const UKRegion = () => {
   const [keywordSearch, setkeywordSearch] = useState([]);
   const [initialLoading, setInitialLoad] = useState([false]);
   const [error, setError] = useState([null])
-  const [disableNewBatchBtn, setDisableNewBatchBtn] = useState(false)
+
   useEffect(() => { 
     setInitialLoad(true)
     getsRandomUKArtworks().then((results) => {
       setUkArtworks(results);  
       setInitialLoad(false)
+   
     })
     .catch((error)=>{
       setInitialLoad(false)
@@ -39,20 +40,26 @@ setkeywordSearch(event.target.value)
 const queryUkArtByKeyword = (event) => {
   event.preventDefault()
   setInitialLoad(true)
+
   getsUkWorkbyKeyword(keywordSearch).then((results) =>{
-    console.log(results.info.record_count, 'total')
+
 setInitialLoad(false)
 setUkArtworks(results.records)
 setkeywordSearch('')
   }).catch((error) =>{
-    setInitialLoading(false)
+    setInitialLoad(false)
     setError(error)
   })
 }
 
+const handleNextPage = () =>{
+  getsUkWorkbyKeyword(keywordSearch).then((results) =>{
 
-
-
+   setUkArtworks(results.records)
+  
+  })
+}
+  
 
 if (ukArtworks.length === 0 && error) {
   return <h1>ERROR </h1>
@@ -114,10 +121,10 @@ else if (initialLoading) {
         onClick={() => {
           newBatch();
         }}
-
       >
         New Batch
       </button>
+
     </article>
   );
   }
