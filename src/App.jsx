@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom"
 import Home from './components/home'
 import Navigation from './components/nav'
 import Header from './components/header'
-import Favourites from './components/favourites'
+
 import Exhibits from './components/exhibits'
 import Error from './components/error-page'
 import UKRegion from './components/uk-region/uk-main-page'
@@ -23,7 +23,6 @@ function App() {
       <Navigation/>
   <Routes>
     <Route path ="/" element={<Home/>}/>
-    <Route path="/favourites" element={<Favourites/>}/>
     <Route path ="/exhibits" element={<Exhibits/>} />
     <Route path='/*' element={<Error/>}/>
     <Route path='/uk' element={<UKRegion/>} />

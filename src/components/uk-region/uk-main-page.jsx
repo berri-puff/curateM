@@ -83,7 +83,7 @@ else if (error && ukArtworks.length === 0) {
         When clicking on the image, takes to the single arts page, css when
         hovered over, display some of the core infromation
       </h2>
-      <form onSubmit={queryUkArtByKeyword}>
+      {/* <form onSubmit={queryUkArtByKeyword}>
         <label htmlFor="searchArtworks"> Search artworks:</label>
         <input
     type="text"
@@ -93,9 +93,18 @@ else if (error && ukArtworks.length === 0) {
     onChange={handleSearchBar}
     value={keywordSearch}
     required
-  />
-        <button>Curate!</button>
-      </form>
+  /> */}
+  <select>
+    <option>Prints</option>
+    <option>Textiles</option>
+    <option>Photography</option>
+    <option>Ceramics</option>
+    <option>Drawings</option>
+    <option>Paintings</option>
+    <option>Clothing</option>
+  </select>
+        {/* <button>Curate!</button>
+      </form> */}
       {ukArtworks.map((artwork) => {
         return ( <Link to={`/uk/${artwork.systemNumber}`} key ={artwork.systemNumber}>
           <ol >
