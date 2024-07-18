@@ -36,3 +36,10 @@ export const getsUsWorkbyKeyword = (keyword) =>{
        return data
     })
 }
+
+export const getsUkWorkbyKeyword = (keyword) =>{
+
+ return app.get(`https://api.vam.ac.uk/v2/objects/search?q=${keyword}&page_size=20&page=1`).then(({data}) =>{
+    return data
+ })
+}
