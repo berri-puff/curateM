@@ -52,7 +52,6 @@ setkeywordSearch('')
   })
 }
 
-console.log(ukArtworks[0])
   
  if (initialLoading) {
     return (
@@ -83,18 +82,19 @@ else if (error && ukArtworks.length === 0) {
         When clicking on the image, takes to the single arts page, css when
         hovered over, display some of the core infromation
       </h2>
-      {/* <form onSubmit={queryUkArtByKeyword}>
+      <form onSubmit={queryUkArtByKeyword}>
         <label htmlFor="searchArtworks"> Search artworks:</label>
         <input
     type="text"
     id="searchArtworks"
     aria-placeholder="input keyword here"
-    placeholder="ie: clays..."
+    placeholder="keyword: ie clay..."
     onChange={handleSearchBar}
     value={keywordSearch}
     required
-  /> */}
-  <select>
+  />
+  <select selected='category'>
+    <option value="" selected disabled hidden>Category</option>
     <option value={'THES48903'}>Prints</option>
     <option value={'THES48885'}>Textiles</option>
     <option value={'THES48910'}>Photography</option>
@@ -103,8 +103,18 @@ else if (error && ukArtworks.length === 0) {
     <option value={'THES48917'}>Paintings</option>
     <option value={'THES48975'}>Clothing</option>
      </select>
+
+     <select>
+      
+      <option value="" selected disabled hidden>Place of Origin</option>   
+      <option value={'x32019'}>Great Britain</option>  
+      <option value={'x28849'}>France</option>
+      <option value={'x29399'}>Japan</option>
+      <option value={'x29398'}>China</option>
+      <option value={'x28927'}>Italy</option>
+        </select>
         <button>Curate!</button>
-      {/* </form> */} */
+      </form> 
       {ukArtworks.map((artwork) => {
         return ( <Link to={`/uk/${artwork.systemNumber}`} key ={artwork.systemNumber}>
           <ol >
