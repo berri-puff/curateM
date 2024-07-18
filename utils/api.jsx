@@ -43,7 +43,6 @@ export const getsUsWorkbyKeyword = (keyword) => {
 
 export const getsUkWorkbyfilters = (pageNum, category, location) => {
     if (category === "") {
-        console.log(location, 'passing through to api')
         return app
         .get(
           `https://api.vam.ac.uk/v2/objects/search?id_place=${location}&page_size=20&page=${pageNum}`
@@ -52,8 +51,8 @@ export const getsUkWorkbyfilters = (pageNum, category, location) => {
           return data.records;
         });
     }
-    else {
-         return app
+    else if (location === "") {
+          return app
     .get(
       `https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=${pageNum}`
     )
@@ -61,5 +60,15 @@ export const getsUkWorkbyfilters = (pageNum, category, location) => {
       return data.records;
     });
     }
+    
+    else {
+        console.log(category, location, pageNum, 'both in the api call')
+        return app
+        .get(
+          `https://api.vam.ac.uk/v2/objects/search?id_category=${category}&id_place=${location}&page_size=20&page=${pageNum}`
+        )
+        .then(({ data }) => {
+          return data.records;
+        });
  
-};
+}}

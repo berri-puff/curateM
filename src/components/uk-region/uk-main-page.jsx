@@ -53,17 +53,18 @@ const UKRegion = () => {
 
   const handleCategory = (event) => {
     setCategoryFilter(event.target.value);
+    setPageCount(1)
   };
 
   const handleLocation = (event) => {
     setLocationFilter(event.target.value);
+    setPageCount(1)
   };
 
   const queryUkArtByFilter = (event) => {
     event.preventDefault();
     setInitialLoad(true);
     let pageInStr = pageCount.toString();
-
     if (!locationFilter) {
       getsUkWorkbyfilters(pageInStr, categoryFilter)
         .then((results) => {
@@ -76,6 +77,19 @@ const UKRegion = () => {
           setError(error);
         });
     }
+    else if (!categoryFilter){
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter)
+      .then((results) => {
+        setPageCount((currentPage) => currentPage + 1);
+        setInitialLoad(false);
+        setUkArtworks(results);
+      })
+      .catch((error) => {
+        setInitialLoad(false);
+        setError(error);
+      });
+    }
+    
     else {
       getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter)
       .then((results) => {
@@ -88,6 +102,7 @@ const UKRegion = () => {
         setError(error);
       });
     }
+     
     
   };
 
