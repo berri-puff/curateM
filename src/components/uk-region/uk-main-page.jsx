@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import { getsRandomUKArtworks } from "../../../utils/api";
+import { getsRandomUKArtworks, getsUkWorkbyKeyword } from "../../../utils/api";
 import { Link } from "react-router-dom";
 
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
-  const [artCategory, setArtCategory] = useState([]);
+  const [keywordSearch, setkeywordSearch] = useState([]);
   const [initialLoading, setInitialLoad] = useState([false]);
   const [error, setError] = useState([null])
+
   useEffect(() => { 
     setInitialLoad(true)
     getsRandomUKArtworks().then((results) => {
       setUkArtworks(results);  
       setInitialLoad(false)
+   
     })
     .catch((error)=>{
       setInitialLoad(false)
@@ -29,6 +31,36 @@ const UKRegion = () => {
     
     });
   }
+
+  const handleSearchBar = (event) =>{
+setkeywordSearch(event.target.value)
+
+  }
+
+const queryUkArtByKeyword = (event) => {
+  event.preventDefault()
+  setInitialLoad(true)
+
+  getsUkWorkbyKeyword(keywordSearch).then((results) =>{
+
+setInitialLoad(false)
+setUkArtworks(results.records)
+setkeywordSearch('')
+  }).catch((error) =>{
+    setInitialLoad(false)
+    setError(error)
+  })
+}
+
+const handleNextPage = () =>{
+  getsUkWorkbyKeyword(keywordSearch).then((results) =>{
+
+   setUkArtworks(results.records)
+  
+  })
+}
+  
+
 if (ukArtworks.length === 0 && error) {
   return <h1>ERROR </h1>
 }
@@ -59,7 +91,19 @@ else if (initialLoading) {
         When clicking on the image, takes to the single arts page, css when
         hovered over, display some of the core infromation
       </h2>
-
+      <form onSubmit={queryUkArtByKeyword}>
+        <label htmlFor="searchArtworks"> Search artworks:</label>
+        <input
+    type="text"
+    id="searchArtworks"
+    aria-placeholder="input keyword here"
+    placeholder="ie: clays..."
+    onChange={handleSearchBar}
+    value={keywordSearch}
+    required
+  />
+        <button>Curate!</button>
+      </form>
       {ukArtworks.map((artwork) => {
         return (
           <ol key ={artwork.systemNumber}>
@@ -80,6 +124,7 @@ else if (initialLoading) {
       >
         New Batch
       </button>
+
     </article>
   );
   }
