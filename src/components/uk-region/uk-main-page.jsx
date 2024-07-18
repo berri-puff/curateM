@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [locationFilter, setLocationFilter] = useState("");
   const [initialLoading, setInitialLoad] = useState([false]);
   const [error, setError] = useState([null]);
-  const [pageCount, setPageCount] = useState(1)
+  const [pageCount, setPageCount] = useState(1);
   useEffect(() => {
     setInitialLoad(true);
-let pageInStr = pageCount.toString()
+    let pageInStr = pageCount.toString();
     getsRandomUKArtworks(pageInStr)
       .then((results) => {
         setUkArtworks(results);
@@ -24,20 +25,28 @@ let pageInStr = pageCount.toString()
   }, []);
 
   function handleMoreBtn() {
-    if (!categoryFilter) {
-      let pageInStr = pageCount.toString()
+    let pageInStr = pageCount.toString();
+    if (!categoryFilter && !locationFilter) {
+    
       getsRandomUKArtworks(pageInStr).then((results) => {
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
       });
-    } else {
-       let pageInStr = pageCount.toString();
-      getsUkWorkbyfilters(pageInStr, categoryFilter).then((results) => {
+    } else if (!locationFilter) {
+      
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter).then((results) => {
         setUkArtworks((currentWorks) => {
-          return [...currentWorks, ...results]; ;
+          return [...currentWorks, ...results];
         });
-       setPageCount((currentPage)=>currentPage +1 )
+        setPageCount((currentPage) => currentPage + 1);
+      });
+    } else {
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter).then((results) => {
+        setUkArtworks((currentWorks) => {
+          return [...currentWorks, ...results];
+        });
+        setPageCount((currentPage) => currentPage + 1);
       });
     }
   }
@@ -46,13 +55,31 @@ let pageInStr = pageCount.toString()
     setCategoryFilter(event.target.value);
   };
 
+  const handleLocation = (event) => {
+    setLocationFilter(event.target.value);
+  };
+
   const queryUkArtByFilter = (event) => {
     event.preventDefault();
     setInitialLoad(true);
     let pageInStr = pageCount.toString();
-    getsUkWorkbyfilters(pageInStr, categoryFilter)
+
+    if (!locationFilter) {
+      getsUkWorkbyfilters(pageInStr, categoryFilter)
+        .then((results) => {
+          setPageCount((currentPage) => currentPage + 1);
+          setInitialLoad(false);
+          setUkArtworks(results);
+        })
+        .catch((error) => {
+          setInitialLoad(false);
+          setError(error);
+        });
+    }
+    else {
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter)
       .then((results) => {
-        setPageCount((currentPage)=>currentPage +1 )
+        setPageCount((currentPage) => currentPage + 1);
         setInitialLoad(false);
         setUkArtworks(results);
       })
@@ -60,6 +87,8 @@ let pageInStr = pageCount.toString()
         setInitialLoad(false);
         setError(error);
       });
+    }
+    
   };
 
   if (initialLoading) {
@@ -103,7 +132,7 @@ let pageInStr = pageCount.toString()
             <option value={"THES48975"}>Clothing</option>
           </select>
 
-          <select>
+          <select onChange={handleLocation}>
             <option value="" selected disabled hidden>
               Place of Origin
             </option>

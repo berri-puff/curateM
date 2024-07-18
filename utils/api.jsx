@@ -41,12 +41,25 @@ export const getsUsWorkbyKeyword = (keyword) => {
     });
 };
 
-export const getsUkWorkbyfilters = (pageNum, category) => {
-  return app
+export const getsUkWorkbyfilters = (pageNum, category, location) => {
+    if (category === "") {
+        console.log(location, 'passing through to api')
+        return app
+        .get(
+          `https://api.vam.ac.uk/v2/objects/search?id_place=${location}&page_size=20&page=${pageNum}`
+        )
+        .then(({ data }) => {
+          return data.records;
+        });
+    }
+    else {
+         return app
     .get(
       `https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=${pageNum}`
     )
     .then(({ data }) => {
       return data.records;
     });
+    }
+ 
 };
