@@ -45,10 +45,12 @@ const queryUsArtworks = (event) => {
     setLoading(true)
     event.preventDefault()
    getsUsWorkbyKeyword(searchKeyword).then((results)=>{
+   
     setDisableBtn(false)
     setLoading(false)
     setUsArtworks(results.data)
-    setSearchKeyword('')
+    setSearchKeyword('') 
+    console.log(usArtworks)
    }).catch((error) =>{
     setLoading(false)
     setError(error)
@@ -76,10 +78,7 @@ return (
              <label htmlFor="keyword Search">
           Keyword Search
         <input
-          className="keyword search"
-            id="searchInput"
-            type="text"
-            placeholder="keywords: paint"
+            placeholder="keyword: teacups"
             onChange={handleSearchQuery}
             value={searchKeyword}
             resize={"none"}
