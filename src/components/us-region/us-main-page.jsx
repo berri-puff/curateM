@@ -59,22 +59,6 @@ if (loading) {
     return (
         <article>
             <h1>US Artworks</h1>
-            {/* <form onSubmit={queryUsArtworks}>
-             <label htmlFor="keyword Search">
-          Keyword Search
-        <input
-          className="keyword search"
-            id="searchInput"
-            type="text"
-            placeholder="keywords: paint"
-            onChange={handleSearchQuery}
-            value={searchKeyword}
-            resize={"none"}
-            required
-          />
-        </label>
-        <button disabled={disableSearchBtn}>Curate!</button>
-         </form> */}
              <h2>Currently Loading</h2>
         </article>
    )
