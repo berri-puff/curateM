@@ -9,7 +9,8 @@ const USRegion = () =>{
     const [maximum, setMaximum] = useState(19)
     const [error, setError] = useState([null])
     const [loading, setLoading] = useState(false)
-  const [disableButton, setDisableBtn] = useState(false)
+  const [disableSearchBtn, setDisableSearchBtn] = useState(false)
+
     useEffect(()=>{
         setLoading(true)
         getUsArtworks().then((results)=>{
@@ -48,6 +49,9 @@ const queryUsArtworks = (event) => {
     setLoading(false)
     setUsArtworks(results.data)
     setSearchKeyword('')
+   }).catch((error) =>{
+    setLoading(false)
+    setError(error)
    })
 }
 
@@ -55,7 +59,7 @@ if (loading) {
     return (
         <article>
             <h1>US Artworks</h1>
-            <form onSubmit={queryUsArtworks}>
+            {/* <form onSubmit={queryUsArtworks}>
              <label htmlFor="keyword Search">
           Keyword Search
         <input
@@ -69,8 +73,8 @@ if (loading) {
             required
           />
         </label>
-        <button disabled={disableButton}>Curate!</button>
-         </form>
+        <button disabled={disableSearchBtn}>Curate!</button>
+         </form> */}
              <h2>Currently Loading</h2>
         </article>
    )
@@ -98,7 +102,7 @@ return (
             required
           />
         </label>
-        <button disabled={disableButton}>Curate!</button>
+        <button disabled={disableSearchBtn}>Curate!</button>
          </form>
         
          {filteredArtworks.map((artwork) =>{
@@ -118,7 +122,7 @@ return (
             
          })}
        
-          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}}>Previous</button>
+          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
             <button aria-label="Next batch" onClick={()=>{handleNextBatchBtn()}}>Next</button>      
     </article>
    )
