@@ -1,47 +1,54 @@
-import axios from 'axios'
+import axios from "axios";
 
 const app = axios.create({
-    baseURL: "https://api.vam.ac.uk/v2"
-})
-export const getsRandomUKArtworks = () =>{
-        return app.get('/objects/search?random=1&page_size=20&page=1').then(({data})=>{
-    return data.records
-   })
-    
-}
+  baseURL: "https://api.vam.ac.uk/v2",
+});
+export const getsRandomUKArtworks = () => {
+  return app
+    .get("/objects/search?random=1&page_size=20&page=1")
+    .then(({ data }) => {
+      return data.records;
+    });
+};
 
-export const getsUkArtworkById = (id) =>{
-return app.get(`/museumobject/${id}`).then(({data}) =>{
-   return data.record
-})
-}
+export const getsUkArtworkById = (id) => {
+  return app.get(`/museumobject/${id}`).then(({ data }) => {
+    return data.record;
+  });
+};
 
-export const getUsArtworks = () =>{
+export const getUsArtworks = () => {
+  return app
+    .get(`https://openaccess-api.clevelandart.org/api/artworks/?limit=20`)
+    .then(({ data }) => {
+      return data;
+    });
+};
 
-         return app.get(`https://openaccess-api.clevelandart.org/api/artworks/?limit=20`).then(({data}) =>{
-       return data
-    })
-    
-}
+export const getSingleUsWork = (id) => {
+  return app
+    .get(`https://openaccess-api.clevelandart.org/api/artworks/${id}`)
+    .then(({ data }) => {
+      return data;
+    });
+};
 
-export const getSingleUsWork = (id) =>{
+export const getsUsWorkbyKeyword = (keyword) => {
+  return app
+    .get(`https://openaccess-api.clevelandart.org/api/artworks/?q=${keyword}`)
+    .then(({ data }) => {
+      return data;
+    });
+};
 
-    return app.get(`https://openaccess-api.clevelandart.org/api/artworks/${id}`).then(({data})=>{
-        return data
-    })
-}
-
-export const getsUsWorkbyKeyword = (keyword) =>{
-    return app.get(`https://openaccess-api.clevelandart.org/api/artworks/?q=${keyword}`).then(({data}) =>{
-       return data
-    })
-}
-
-export const getsUkWorkbyfilters= (category) =>{
-console.log(category,'through the api')
-     return app.get(`https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=1`).then(({data}) =>{
-    return data
- })
-
-
-}
+export const getsUkWorkbyfilters = (pageNum, category) => {
+  console.log(pageNum, "through the api");
+console.log(category, 'with us through api on more artwork')
+  return app
+    .get(
+      `https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=${pageNum}`
+    )
+    .then(({ data }) => {
+      return data.records;
+    });
+};
