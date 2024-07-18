@@ -95,16 +95,16 @@ else if (error && ukArtworks.length === 0) {
     required
   /> */}
   <select>
-    <option>Prints</option>
-    <option>Textiles</option>
-    <option>Photography</option>
-    <option>Ceramics</option>
-    <option>Drawings</option>
-    <option>Paintings</option>
-    <option>Clothing</option>
-  </select>
-        {/* <button>Curate!</button>
-      </form> */}
+    <option value={'THES48903'}>Prints</option>
+    <option value={'THES48885'}>Textiles</option>
+    <option value={'THES48910'}>Photography</option>
+    <option value={'THES48982'}>Ceramics</option>
+    <option value={'THES48966'}>Drawings</option>
+    <option value={'THES48917'}>Paintings</option>
+    <option value={'THES48975'}>Clothing</option>
+     </select>
+        <button>Curate!</button>
+      {/* </form> */} */
       {ukArtworks.map((artwork) => {
         return ( <Link to={`/uk/${artwork.systemNumber}`} key ={artwork.systemNumber}>
           <ol >
