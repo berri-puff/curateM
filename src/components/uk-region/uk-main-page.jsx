@@ -52,19 +52,9 @@ setkeywordSearch('')
   })
 }
 
-const handleNextPage = () =>{
-  getsUkWorkbyKeyword(keywordSearch).then((results) =>{
-
-   setUkArtworks(results.records)
+console.log(ukArtworks[0])
   
-  })
-}
-  
-
-if (ukArtworks.length === 0 && error) {
-  return <h1>ERROR </h1>
-}
-else if (initialLoading) {
+ if (initialLoading) {
     return (
         <article>
         <h1>
@@ -79,7 +69,9 @@ else if (initialLoading) {
       </article>
     );
   }
-
+else if (error && ukArtworks.length === 0) {
+  return <h1>ERROR </h1>
+}
   else {
      return (
     <article>
@@ -105,15 +97,15 @@ else if (initialLoading) {
         <button>Curate!</button>
       </form>
       {ukArtworks.map((artwork) => {
-        return (
-          <ol key ={artwork.systemNumber}>
-            <Link to={`/uk/${artwork.systemNumber}`}> <p>{artwork["_primaryTitle"]}</p> </Link>
+        return ( <Link to={`/uk/${artwork.systemNumber}`} key ={artwork.systemNumber}>
+          <ol >
+            <p>{artwork["_primaryTitle"]}</p> 
             <Link to={`/uk/${artwork.systemNumber}`}><img src={artwork["_images"]["_primary_thumbnail"]}></img> </Link>
             <li>Type: {artwork.objectType}</li>
             <p>By: {artwork["_primaryMaker"]["name"]}</p>
             <p>{artwork["_currentLocation"].displayName}</p>
           </ol>
-        );
+       </Link> );
       })}
 
       <button
