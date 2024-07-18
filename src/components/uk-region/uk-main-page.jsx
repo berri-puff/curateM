@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getsRandomUKArtworks, getsUkWorkbyKeyword } from "../../../utils/api";
+import { getsRandomUKArtworks, getsUkWorkbyfilters } from "../../../utils/api";
 import { Link } from "react-router-dom";
 
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
-  const [keywordSearch, setkeywordSearch] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [initialLoading, setInitialLoad] = useState([false]);
   const [error, setError] = useState([null])
 
@@ -32,20 +32,20 @@ const UKRegion = () => {
     });
   }
 
-  const handleSearchBar = (event) =>{
-setkeywordSearch(event.target.value)
-
+  const handleCategory = (event) =>{
+    console.log(event.target.value)
+setCategoryFilter(event.target.value)
   }
 
-const queryUkArtByKeyword = (event) => {
+const queryUkArtByFilter = (event) => {
   event.preventDefault()
   setInitialLoad(true)
 
-  getsUkWorkbyKeyword(keywordSearch).then((results) =>{
+  getsUkWorkbyfilters(categoryFilter).then((results) =>{
 
 setInitialLoad(false)
 setUkArtworks(results.records)
-setkeywordSearch('')
+setCategoryFilter('')
   }).catch((error) =>{
     setInitialLoad(false)
     setError(error)
@@ -82,18 +82,9 @@ else if (error && ukArtworks.length === 0) {
         When clicking on the image, takes to the single arts page, css when
         hovered over, display some of the core infromation
       </h2>
-      <form onSubmit={queryUkArtByKeyword}>
-        <label htmlFor="searchArtworks"> Search artworks:</label>
-        <input
-    type="text"
-    id="searchArtworks"
-    aria-placeholder="input keyword here"
-    placeholder="keyword: ie clay..."
-    onChange={handleSearchBar}
-    value={keywordSearch}
-    required
-  />
-  <select selected='category'>
+      <form onSubmit={queryUkArtByFilter}>
+      
+  <select onChange={handleCategory}>
     <option value="" selected disabled hidden>Category</option>
     <option value={'THES48903'}>Prints</option>
     <option value={'THES48885'}>Textiles</option>
@@ -105,7 +96,6 @@ else if (error && ukArtworks.length === 0) {
      </select>
 
      <select>
-      
       <option value="" selected disabled hidden>Place of Origin</option>   
       <option value={'x32019'}>Great Britain</option>  
       <option value={'x28849'}>France</option>

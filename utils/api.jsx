@@ -37,9 +37,9 @@ export const getsUsWorkbyKeyword = (keyword) =>{
     })
 }
 
-export const getsUkWorkbyKeyword = (keyword) =>{
-console.log(keyword,'through the api')
-     return app.get(`https://api.vam.ac.uk/v2/objects/search?q=${keyword}&page_size=20&page=1`).then(({data}) =>{
+export const getsUkWorkbyfilters= (category) =>{
+console.log(category,'through the api')
+     return app.get(`https://api.vam.ac.uk/v2/objects/search?id_category=${category}&page_size=20&page=1`).then(({data}) =>{
     return data
  })
 
