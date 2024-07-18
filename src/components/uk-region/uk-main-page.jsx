@@ -35,7 +35,7 @@ const UKRegion = () => {
       });
     } else if (!locationFilter) {
       
-      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter).then((results) => {
+      getsUkWorkbyfilters(pageInStr, categoryFilter).then((results) => {
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
