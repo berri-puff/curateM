@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
-import { getUsArtworks } from "../../../utils/api"
+import { getsUsWorkbyKeyword, getUsArtworks } from "../../../utils/api"
 import { Link } from "react-router-dom"
 
 const USRegion = () =>{
     const [usArtworks, setUsArtworks] = useState([])
-    const [artCategory, setArtCategory] = useState([])
+    const [searchKeyword, setSearchKeyword] = useState('')
     const [minimum, setMinimum] = useState(0)
     const [maximum, setMaximum] = useState(19)
     const [error, setError] = useState([null])
     const [loading, setLoading] = useState(false)
-  
+  const [disableSearchBtn, setDisableSearchBtn] = useState(false)
+
     useEffect(()=>{
         setLoading(true)
         getUsArtworks().then((results)=>{
@@ -35,8 +36,32 @@ const handlepreviousBatchBtn = () =>{
     setMaximum((currentMax)=> currentMax -= 10)
 }
 
+const handleSearchQuery = (event) =>{
+    setSearchKeyword(event.target.value)
+}
+
+const queryUsArtworks = (event) => {
+    setDisableBtn(true)
+    setLoading(true)
+    event.preventDefault()
+   getsUsWorkbyKeyword(searchKeyword).then((results)=>{
+    setDisableBtn(false)
+    setLoading(false)
+    setUsArtworks(results.data)
+    setSearchKeyword('')
+   }).catch((error) =>{
+    setLoading(false)
+    setError(error)
+   })
+}
+
 if (loading) {
-    return <h1>Currently Loading</h1>
+    return (
+        <article>
+            <h1>US Artworks</h1>
+             <h2>Currently Loading</h2>
+        </article>
+   )
 }
 else if (error && usArtworks.length === 0) {
 return <h1>opps, something went wrong, {error.message}</h1>
@@ -46,7 +71,23 @@ else {
 
 return (
     <article>
-         <h1>This is the us region all pages with drop down category selection </h1>
+         <h1>US Artworks</h1>
+         <form onSubmit={queryUsArtworks}>
+             <label htmlFor="keyword Search">
+          Keyword Search
+        <input
+          className="keyword search"
+            id="searchInput"
+            type="text"
+            placeholder="keywords: paint"
+            onChange={handleSearchQuery}
+            value={searchKeyword}
+            resize={"none"}
+            required
+          />
+        </label>
+        <button disabled={disableSearchBtn}>Curate!</button>
+         </form>
         
          {filteredArtworks.map((artwork) =>{
            const imageUrl = artwork?.alternate_images[0]?.print?.url
@@ -65,7 +106,7 @@ return (
             
          })}
        
-          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}}>Previous</button>
+          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
             <button aria-label="Next batch" onClick={()=>{handleNextBatchBtn()}}>Next</button>      
     </article>
    )
