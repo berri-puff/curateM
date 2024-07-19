@@ -41,16 +41,12 @@ const handleSearchQuery = (event) =>{
 }
 
 const queryUsArtworks = (event) => {
-    setDisableBtn(true)
-    setLoading(true)
     event.preventDefault()
+    setLoading(true)
    getsUsWorkbyKeyword(searchKeyword).then((results)=>{
-   
-    setDisableBtn(false)
     setLoading(false)
     setUsArtworks(results.data)
     setSearchKeyword('') 
-    console.log(usArtworks)
    }).catch((error) =>{
     setLoading(false)
     setError(error)
@@ -105,8 +101,8 @@ return (
             
          })}
        
-          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
-            <button aria-label="Next batch" onClick={()=>{handleNextBatchBtn()}}>Next</button>      
+          <button aria-label="previous " onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
+            <button aria-label="Next " onClick={()=>{handleNextBatchBtn()}}>Next</button>      
     </article>
    )
 }
