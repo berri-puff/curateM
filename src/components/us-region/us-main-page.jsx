@@ -41,16 +41,14 @@ const handleSearchQuery = (event) =>{
 }
 
 const queryUsArtworks = (event) => {
-    setDisableBtn(true)
-    setLoading(true)
+    setDisableSearchBtn(true)
     event.preventDefault()
+    setLoading(true)
    getsUsWorkbyKeyword(searchKeyword).then((results)=>{
-   
-    setDisableBtn(false)
+    setDisableSearchBtn(false)
     setLoading(false)
     setUsArtworks(results.data)
     setSearchKeyword('') 
-    console.log(usArtworks)
    }).catch((error) =>{
     setLoading(false)
     setError(error)
@@ -85,7 +83,8 @@ return (
             required
           />
         </label>
-        <button disabled={disableSearchBtn}>Curate!</button>
+
+        <button aria-label="search" disabled={disableSearchBtn}>Curate!</button>
          </form>
         
          {filteredArtworks.map((artwork) =>{
@@ -105,8 +104,8 @@ return (
             
          })}
        
-          <button aria-label="previous batch" onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
-            <button aria-label="Next batch" onClick={()=>{handleNextBatchBtn()}}>Next</button>      
+          <button aria-label="previous " onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
+            <button aria-label="Next " onClick={()=>{handleNextBatchBtn()}}>Next</button>      
     </article>
    )
 }
