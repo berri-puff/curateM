@@ -28,7 +28,12 @@ const Exhibits = () =>{
                      </article>)
             }
             else {
-                return <p>US</p>
+                
+                return (
+                    <article>
+                         <img src={artwork.images.web.url} alt="No description given"></img>
+                    </article>
+                )
             }
         })}
     </article>
