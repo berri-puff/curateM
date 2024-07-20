@@ -23,17 +23,19 @@ const USRegion = () =>{
         })
     }, [])
 
-  
+
  const filteredArtworks = usArtworks.filter((artwork, index) => index >= minimum && index <= maximum);
     const handleNextBatchBtn = () =>{
+       
     setMinimum((currentMin)=> currentMin += 20)
     setMaximum((currentMax)=> currentMax += 20)
   
 
 }
+
 const handlepreviousBatchBtn = () =>{
-    setMinimum((currentMin)=> currentMin -= 10)
-    setMaximum((currentMax)=> currentMax -= 10)
+    setMinimum((currentMin)=> currentMin -= 20)
+    setMaximum((currentMax)=> currentMax -= 20)
 }
 
 const handleSearchQuery = (event) =>{
