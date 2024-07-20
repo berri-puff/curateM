@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getsRandomUKArtworks, getsUkWorkbyfilters } from "../../../utils/api";
 import { Link } from "react-router-dom";
+import Error from "../error-page";
 
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
@@ -105,6 +106,7 @@ const UKRegion = () => {
      
     
   };
+  console.log(error)
 
   if (initialLoading) {
     return (
@@ -121,7 +123,7 @@ const UKRegion = () => {
       </article>
     );
   } else if (error && ukArtworks.length === 0) {
-    return <h1>ERROR </h1>;
+    return <Error status={null} msg={error.detail.length ===0 ? error.detail : error.detail[0].msg}/>
   } else {
     return (
       <article>
