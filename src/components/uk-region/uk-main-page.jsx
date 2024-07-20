@@ -167,6 +167,7 @@ const UKRegion = () => {
                 <Link to={`/uk/${artwork.systemNumber}`}>
                   <img src={artwork["_images"]["_primary_thumbnail"]}></img>{" "}
                 </Link>
+                <p>© Victoria and Albert Museum, London</p>
                 <li>Type: {artwork.objectType}</li>
                 <p>By: {artwork["_primaryMaker"]["name"]}</p>
                 <p>{artwork["_currentLocation"].displayName}</p>
