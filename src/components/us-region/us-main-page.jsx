@@ -41,9 +41,11 @@ const handleSearchQuery = (event) =>{
 }
 
 const queryUsArtworks = (event) => {
+    setDisableSearchBtn(true)
     event.preventDefault()
     setLoading(true)
    getsUsWorkbyKeyword(searchKeyword).then((results)=>{
+    setDisableSearchBtn(false)
     setLoading(false)
     setUsArtworks(results.data)
     setSearchKeyword('') 
@@ -81,7 +83,8 @@ return (
             required
           />
         </label>
-        <button disabled={disableSearchBtn}>Curate!</button>
+
+        <button aria-label="search" disabled={disableSearchBtn}>Curate!</button>
          </form>
         
          {filteredArtworks.map((artwork) =>{
