@@ -23,7 +23,7 @@ setLoadingState(false)
 }, [])
 
 
-
+console.log(ukSingleArtwork)
 
 const addToExhibit = ()=>{
 
@@ -41,7 +41,7 @@ const addToExhibit = ()=>{
 if (ukSingleArtwork.length === 0 && error) {
     return <h1>Error</h1>
 }
-else if (loadingState) {
+else if (loadingState && !error) {
     return <h1>Loading...</h1>
 }else return ( <article>
         <h1>This will contain a single piece of art once user clicks on it/interacts
@@ -55,7 +55,7 @@ else if (loadingState) {
 <h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
 {ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
-
+<p>© Victoria and Albert Museum, London</p>
 
 
 <button aria-label="add to exhibit" onClick={()=>{addToExhibit()}}>Add To My Exhibit</button>
