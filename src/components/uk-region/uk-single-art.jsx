@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"
-
+import Error from "../error-page"
 import { useParams } from "react-router-dom"
 import { ExhibitContext } from "../../context/exhibit-context"
 import { getsUkArtworkById } from "../../../utils/api"
@@ -23,7 +23,6 @@ setLoadingState(false)
 }, [])
 
 
-console.log(ukSingleArtwork)
 
 const addToExhibit = ()=>{
 
@@ -39,7 +38,8 @@ const addToExhibit = ()=>{
 }
 
 if (ukSingleArtwork.length === 0 && error) {
-    return <h1>Error</h1>
+    const msg = (error.data && error.data.detail) 
+    return <Error status={error.status} msg={msg}/>
 }
 else if (loadingState && error.length === 0) {
     return <h1>Loading...</h1>
