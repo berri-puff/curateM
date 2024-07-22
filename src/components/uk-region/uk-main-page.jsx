@@ -10,6 +10,7 @@ const UKRegion = () => {
   const [initialLoading, setInitialLoad] = useState([false]);
   const [error, setError] = useState([null]);
   const [pageCount, setPageCount] = useState(1);
+
   useEffect(() => {
     setInitialLoad(true);
     let pageInStr = pageCount.toString();
@@ -21,7 +22,6 @@ const UKRegion = () => {
       .catch((error) => {
         setInitialLoad(false);
         setError(error.response.data);
-        setInitialLoad(false);
       });
   }, []);
 
@@ -30,25 +30,26 @@ const UKRegion = () => {
     if (!categoryFilter && !locationFilter) {
     
       getsRandomUKArtworks(pageInStr).then((results) => {
+
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
-      });
+      })
     } else if (!locationFilter) {
       
-      getsUkWorkbyfilters(pageInStr, categoryFilter).then((results) => {
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter).then((results) => {
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
         setPageCount((currentPage) => currentPage + 1);
-      });
+      })
     } else {
       getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter).then((results) => {
         setUkArtworks((currentWorks) => {
           return [...currentWorks, ...results];
         });
         setPageCount((currentPage) => currentPage + 1);
-      });
+      })
     }
   }
 
@@ -67,7 +68,7 @@ const UKRegion = () => {
     setInitialLoad(true);
     let pageInStr = pageCount.toString();
     if (!locationFilter) {
-      getsUkWorkbyfilters(pageInStr, categoryFilter)
+      getsUkWorkbyfilters(pageInStr, categoryFilter, locationFilter)
         .then((results) => {
           setPageCount((currentPage) => currentPage + 1);
           setInitialLoad(false);
@@ -75,7 +76,7 @@ const UKRegion = () => {
         })
         .catch((error) => {
           setInitialLoad(false);
-          setError(error);
+          setError(error.response);
         });
     }
     else if (!categoryFilter){
@@ -87,7 +88,7 @@ const UKRegion = () => {
       })
       .catch((error) => {
         setInitialLoad(false);
-        setError(error);
+        setError(error.response);
       });
     }
     
@@ -100,7 +101,7 @@ const UKRegion = () => {
       })
       .catch((error) => {
         setInitialLoad(false);
-        setError(error);
+        setError(error.response);
       });
     }
      
@@ -123,21 +124,20 @@ const UKRegion = () => {
       </article>
     );
   } else if (error && ukArtworks.length === 0) {
-    return <Error status={null} msg={error.detail.length ===0 ? error.detail : error.detail[0].msg}/>
+    return <Error status={null} msg={ error.detail 
+      ? Array.isArray(error.detail) 
+        ? error.detail[0].msg 
+        : error.detail 
+      : null}/>
   } else {
     return (
       <article>
         <h1>
-          this page will contain all the uk artworks only, calling on the V&A
-          api so far, to add Fitzwilliam later on
+          Randomized Artworks from Victoria & Albert Museum
         </h1>
-        <h2>
-          When clicking on the image, takes to the single arts page, css when
-          hovered over, display some of the core infromation
-        </h2>
         <form onSubmit={queryUkArtByFilter}>
-          <select onChange={handleCategory}>
-            <option value="" selected disabled hidden>
+          <select onChange={handleCategory} defaultValue={categoryFilter}>
+            <option value="" >
               Category
             </option>
             <option value={"THES48903"}>Prints</option>
@@ -149,8 +149,8 @@ const UKRegion = () => {
             <option value={"THES48975"}>Clothing</option>
           </select>
 
-          <select onChange={handleLocation}>
-            <option value="" selected disabled hidden>
+          <select onChange={handleLocation} defaultValue={locationFilter}>
+            <option value="" >
               Place of Origin
             </option>
             <option value={"x32019"}>Great Britain</option>
