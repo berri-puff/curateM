@@ -66,7 +66,7 @@ if (loading) {
         </article>
    )
 }
-else if (error && loading === false) {
+else if (error && usArtworks.length === 0) {
     const msg = error.response ? error.response.data.detail : null;
     const status = error.response ? error.response.status : null;
 return <Error status={status} msg={msg}/>
