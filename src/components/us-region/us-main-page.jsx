@@ -57,7 +57,7 @@ const queryUsArtworks = (event) => {
    })
 }
 
-console.log(error, 'in the main')
+
 if (loading) {
     return (
         <article>

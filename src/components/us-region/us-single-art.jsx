@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleUsWork } from "../../../utils/api";
 import { ExhibitContext } from "../../context/exhibit-context";
 import { splitTime } from "../../../utils/splitTime";
-
+import Error from "../error-page";
 const USSingleArt = () => {
   const [usSingleArtwork, setUsSingleArtwork] = useState([]);
 
@@ -17,12 +17,11 @@ const USSingleArt = () => {
       setUsSingleArtwork(result.data);
     }).catch((error) =>{
       setLoading(false)
-      console.log(error.response.data.detail)
       setError(error.response)
     })
   }, []);
 
-
+console.log(error)
 
   const addToExhibit = () => {
     setExhibit((currentExhibit) => {
@@ -38,7 +37,9 @@ if(loading) {
   return <h1>Loading...</h1>
 }
 else if (error && usSingleArtwork.length === 0) {
-  return <h1>Oppps, something went wrong retrieving your artwork </h1>
+  const msg = (error.data && error.data.detail) 
+  return <Error status={error.status} msg={msg}/>
+
 }
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
