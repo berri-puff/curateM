@@ -13,7 +13,9 @@ const USSingleArt = () => {
   const { artId } = useParams();
 
   useEffect(() => {
+    setLoading(true)
     getSingleUsWork(artId).then((result) => {
+      setLoading(false)
       setUsSingleArtwork(result.data);
     }).catch((error) =>{
       setLoading(false)
@@ -33,7 +35,7 @@ console.log(error)
     });
   };
 
-if(loading) {
+if(loading ) {
   return <h1>Loading...</h1>
 }
 else if (error && usSingleArtwork.length === 0) {
