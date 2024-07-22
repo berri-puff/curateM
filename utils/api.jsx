@@ -19,7 +19,7 @@ export const getsUkArtworkById = (id) => {
 
 export const getUsArtworks = () => {
   return app
-    .get(`https://openaccess-api.clevelandart.org/api/artworks`)
+    .get(`https://openaccess-api.clevelandart.org/api/arworks`)
     .then(({ data }) => {
       return data;
     });

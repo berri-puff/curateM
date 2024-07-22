@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getsUsWorkbyKeyword, getUsArtworks } from "../../../utils/api"
 import { Link } from "react-router-dom"
-
+import Error from "../error-page"
 const USRegion = () =>{
     const [usArtworks, setUsArtworks] = useState([])
     const [searchKeyword, setSearchKeyword] = useState('')
@@ -57,6 +57,7 @@ const queryUsArtworks = (event) => {
    })
 }
 
+console.log(error, 'in the main')
 if (loading) {
     return (
         <article>
@@ -65,8 +66,11 @@ if (loading) {
         </article>
    )
 }
-else if (error && usArtworks.length === 0) {
-return <h1>opps, something went wrong, {error.message}</h1>
+else if (error && loading === false) {
+    const msg = error.response ? error.response.data.detail : null;
+    const status = error.response ? error.response.status : null;
+return <Error status={status} msg={msg}/>
+// return <h1>err</h1>
 }
 else {
 
