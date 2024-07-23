@@ -74,7 +74,7 @@ else return ( <article>
 
 <h3>About: </h3>
 {ukSingleArtwork.summaryDescription? <p>{ukSingleArtwork.summaryDescription}</p> : <p>{ukSingleArtwork.briefDescription}</p> }
-{ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <p>placeholder insert here</p>}  
+{ukSingleArtwork.images.length !=0 ?  <img src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}></img> : <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019"/>}  
 <p>© Victoria and Albert Museum, London</p>
 
 

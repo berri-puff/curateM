@@ -99,7 +99,7 @@ return (
                   <Link key={artwork.id} to={`/us/${artwork.id}`}>
              <ol>
                    <li>{artwork.title}</li>
-                   {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <h3>No image</h3>}
+                   {imageUrl?  <img src={imageUrl} width={200} height="auto"></img>: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019"/>}
                   
 
                 <li>By  {artwork.creators.length !=0? <span>{artwork.creators[0].description}</span> : <span>Unknown</span>}</li>

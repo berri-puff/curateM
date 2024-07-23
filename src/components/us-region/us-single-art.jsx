@@ -70,7 +70,7 @@ else if (error && usSingleArtwork.length === 0) {
         <p>By: {usSingleArtwork.creators[0].description}</p>
         <h3>ABOUT:</h3>
         <p>{usSingleArtwork.description}</p>
-        <img src={usSingleArtwork.images.web.url}></img>
+        <img src={usSingleArtwork.images.web.url}/>
 
         <button
           aria-label="add to exhibit"
