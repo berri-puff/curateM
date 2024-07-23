@@ -8,14 +8,18 @@ const UKSingleArt = () =>{
     const {setExhibit} = useContext(ExhibitContext)
     const [loadingState, setLoadingState] = useState([false])
     const [error, setError] = useState([null])
+    const [feedbackMsg, setFeedbackMsg] = useState('')
+    const [exhibitLoad, setExhibitLoad] = useState(false)
+    const [addBtnDisable, setAddBtnDisable] = useState(false)
 
 const {artId} = useParams()
 
 useEffect(() =>{
     setLoadingState(true)
     getsUkArtworkById(artId).then((result)=>{
+        setLoadingState(false)
 setUkSingleArtwork(result)
-setLoadingState(false)
+
     }).catch((error) =>{
         setLoadingState(false)
         setError(error.response)
@@ -25,29 +29,43 @@ setLoadingState(false)
 
 
 const addToExhibit = ()=>{
-
+    setAddBtnDisable(true)
+setExhibitLoad(true)
    setExhibit(currentExhibit => {
     if (Array.isArray(currentExhibit)) {
+        setAddBtnDisable(false)
+        setExhibitLoad(false)
+        setFeedbackMsg('Artwork added to your list successfully!')
         return [...currentExhibit, ukSingleArtwork]
     }
-    else {
+    else if (!currentExhibit) {
+        setAddBtnDisable(false)
+        setExhibitLoad(false)
+        setFeedbackMsg('Artwork added to your list successfully!')
         return [ukSingleArtwork]
     }
-   })
- 
+    else {
+        setAddBtnDisable(false)
+        setLoadingState(false)
+        setFeedbackMsg('Artwork not added to the page :(')
+
+    }
+   }
+)
+
 }
 
 if (ukSingleArtwork.length === 0 && error) {
     const msg = (error.data && error.data.detail) 
     return <Error status={error.status} msg={msg}/>
 }
-else if (loadingState && error.length === 0) {
+else if (loadingState) {
     return <h1>Loading...</h1>
 }else return ( <article>
         <h1>This will contain a single piece of art once user clicks on it/interacts
         may also have some suggested art via artist names       
     </h1>
-
+<p>{feedbackMsg != '' ? <p>{feedbackMsg}</p> : null }</p>
 {ukSingleArtwork.titles.length != 0? <h2>{ukSingleArtwork.titles[0].title} </h2>: <h2>Untitled Artwork</h2>}
 
 <p>By: {ukSingleArtwork.artistMakerPerson.length != 0? <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span> : <span>Unknown</span>}</p>
@@ -58,7 +76,8 @@ else if (loadingState && error.length === 0) {
 <p>© Victoria and Albert Museum, London</p>
 
 
-<button aria-label="add to exhibit" onClick={()=>{addToExhibit()}}>Add To My Exhibit</button>
+<button aria-label="add to exhibit" onClick={()=>{addToExhibit()}} disabled={addBtnDisable}>Add To My Exhibit</button>
+
 
 <h3>History: </h3>
 <p>This piece was added to V&A collection in the year  <span>{ukSingleArtwork.accessionYear}</span> </p>
