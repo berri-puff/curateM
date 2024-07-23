@@ -55,17 +55,19 @@ setExhibitLoad(true)
 
 }
 
-if (ukSingleArtwork.length === 0 && error) {
+
+if (loadingState) {
+    return <h1>Loading...</h1>
+}else if (ukSingleArtwork.length === 0 && error) {
     const msg = (error.data && error.data.detail) 
     return <Error status={error.status} msg={msg}/>
 }
-else if (loadingState) {
-    return <h1>Loading...</h1>
-}else return ( <article>
+else return ( <article>
         <h1>This will contain a single piece of art once user clicks on it/interacts
         may also have some suggested art via artist names       
     </h1>
 <p>{feedbackMsg != '' ? <p>{feedbackMsg}</p> : null }</p>
+<p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
 {ukSingleArtwork.titles.length != 0? <h2>{ukSingleArtwork.titles[0].title} </h2>: <h2>Untitled Artwork</h2>}
 
 <p>By: {ukSingleArtwork.artistMakerPerson.length != 0? <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span> : <span>Unknown</span>}</p>
