@@ -1,4 +1,5 @@
-*{
-    font-weight: 400;
-    color: brown;
+@import 'bulma/css/bulma.css';
+
+* {
+    text-align: center;
 }
