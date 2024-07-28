@@ -133,7 +133,8 @@ const UKRegion = () => {
       <article>
         <h1>UK Artworks</h1>
         <form onSubmit={queryUkArtByFilter}>
-          <select onChange={handleCategory} defaultValue={categoryFilter}>
+          <div className="select is-rounded is-primary">
+  <select onChange={handleCategory} defaultValue={categoryFilter} >
             <option value="">Category</option>
             <option value={"THES48903"}>Prints</option>
             <option value={"THES48885"}>Textiles</option>
@@ -144,6 +145,8 @@ const UKRegion = () => {
             <option value={"THES48975"}>Clothing</option>
           </select>
 
+          </div>
+          <div className="select is-rounded is-primary">
           <select onChange={handleLocation} defaultValue={locationFilter}>
             <option value="">Place of Origin</option>
             <option value={"x32019"}>Great Britain</option>
@@ -152,7 +155,8 @@ const UKRegion = () => {
             <option value={"x29398"}>China</option>
             <option value={"x28927"}>Italy</option>
           </select>
-          <button>Curate!</button>
+          </div>
+          <button className="button is-normal is-rounded is-dark is-primary">Curate!</button>
         </form>
   
         {ukArtworks.map((artwork) => {
