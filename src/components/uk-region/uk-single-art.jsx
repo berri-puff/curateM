@@ -50,7 +50,7 @@ const UKSingleArt = () => {
   };
 
   if (loadingState) {
-    return       <progress class="progress is-small is-primary" max="100">20%</progress>
+    return       <progress className="progress is-small is-primary" max="100">20%</progress>
   } else if (ukSingleArtwork.length === 0 && error) {
     const msg = error.data && error.data.detail;
     return <Error status={error.status} msg={msg} />;

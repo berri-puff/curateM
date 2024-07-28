@@ -53,7 +53,7 @@ console.log(error)
   };
 
 if(loading ) {
-  return       <progress class="progress is-small is-primary" max="100">20%</progress>
+  return       <progress className="progress is-small is-primary" max="100">20%</progress>
 }
 else if (error && usSingleArtwork.length === 0) {
   const msg = (error.data && error.data.detail) 

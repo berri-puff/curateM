@@ -62,7 +62,7 @@ if (loading) {
     return (
         <article>
             <h1>US Artworks</h1>
-            <progress class="progress is-small is-primary" max="100">20%</progress>
+            <progress className="progress is-small is-primary" max="100">20%</progress>
         </article>
    )
 }
