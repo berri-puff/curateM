@@ -1,5 +1,17 @@
 @import 'bulma/css/bulma.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,120.9,100..900;1,120.9,100..900&family=Satisfy&display=swap');
+
+
 * {
     text-align: center;
+}
+
+h1{
+  
+        font-family: "Satisfy", cursive;
+        font-weight: 600;
+        font-style: bold;
+        font-size: xx-large;
+      
 }
