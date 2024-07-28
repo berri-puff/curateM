@@ -115,7 +115,7 @@ const UKRegion = () => {
         <h1>
           Randomised Artworks from Victoria & Albert Museum
         </h1>
-        <progress class="progress is-small is-primary" max="100">15%</progress>
+        <progress class="progress is-small is-primary" max="100">20%</progress>
       </article>
     );
   } else if (error && ukArtworks.length === 0) {
