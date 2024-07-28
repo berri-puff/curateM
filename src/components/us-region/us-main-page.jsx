@@ -62,7 +62,7 @@ if (loading) {
     return (
         <article>
             <h1>US Artworks</h1>
-             <h2>Currently Loading</h2>
+            <progress class="progress is-small is-primary" max="100">20%</progress>
         </article>
    )
 }
@@ -70,7 +70,7 @@ else if (error && usArtworks.length === 0) {
     const msg = error.response ? error.response.data.detail : null;
     const status = error.response ? error.response.status : null;
 return <Error status={status} msg={msg}/>
-// return <h1>err</h1>
+
 }
 else {
 
