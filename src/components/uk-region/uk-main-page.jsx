@@ -192,11 +192,13 @@ const UKRegion = () => {
           );
         })}
 
-        <button
+        <button 
+        className="button is-medium is-rounded is-light is-link"
           aria-label="new batch button"
           onClick={() => {
             handleMoreBtn();
           }}
+         
         >
           More Artwork
         </button>
