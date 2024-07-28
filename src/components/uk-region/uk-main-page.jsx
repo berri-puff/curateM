@@ -107,7 +107,7 @@ const UKRegion = () => {
      
     
   };
-  console.log(error)
+
 
   if (initialLoading) {
     return (
@@ -115,7 +115,7 @@ const UKRegion = () => {
         <h1>
           Randomised Artworks from Victoria & Albert Museum
         </h1>
-        <h3>Loading</h3>
+        <progress class="progress is-small is-primary" max="100">15%</progress>
       </article>
     );
   } else if (error && ukArtworks.length === 0) {
