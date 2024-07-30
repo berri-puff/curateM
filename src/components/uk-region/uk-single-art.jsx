@@ -117,6 +117,7 @@ const UKSingleArt = () => {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div className="dropdown-content">
+                    <p className="dropdown-item">Victoria & Albert Museum</p>
                     <p className="dropdown-item">
                       BOX: {ukSingleArtwork.galleryLocations[0].box}
                     </p>
@@ -131,7 +132,7 @@ const UKSingleArt = () => {
               </div>
           </section>
 
-          <section className="column">
+          <section className="column is-vcentered">
           
             <h2 className="title title-2">About: </h2> 
         
@@ -150,22 +151,18 @@ const UKSingleArt = () => {
             {ukSingleArtwork.placesOfOrigin.length != 0 ? (
               <span> {ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
             ) : (
-              <span>Unknown</span>
+              <span> Unknown</span>
             )}
             <p>
-              Production date for this is estimated to be around
+              Estimated production date is 
               {ukSingleArtwork.productionDates.length != 0 ? (
                 <span> {ukSingleArtwork.productionDates[0].date.text}</span>
-              ) : null}
+              ) : <span> not known</span>}
             </p>
             <section className="column">
-                 <p>
-                 {ukSingleArtwork.titles.length != 0 ? (
-          <span>{ukSingleArtwork.titles[0].title} </span>
-        ) : (
-          <span>This work </span>
-        )} was added to V&A collection in the year
-              <span> {ukSingleArtwork.accessionYear}</span>
+                 <p> 
+               It was added to V&A collection in 
+              {ukSingleArtwork.accessionYear ? <span> {ukSingleArtwork.accessionYear} </span> : <span> unknown date</span>}
             </p>
            
             </section>
