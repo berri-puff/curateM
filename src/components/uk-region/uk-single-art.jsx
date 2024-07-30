@@ -57,17 +57,36 @@ const UKSingleArt = () => {
   } else
     return (
       <article>
-        <h1>
+   
           {ukSingleArtwork.titles.length != 0 ? (
-          <h2>{ukSingleArtwork.titles[0].title} </h2>
+          <h1 className="title is-3">{ukSingleArtwork.titles[0].title} </h1>
         ) : (
-          <h2>Untitled Artwork</h2>
+          <h1 className="title is-3">Untitled Artwork</h1>
         )}
-        </h1>
+     
         <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
         <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
        
-        <p>
+       <section className="box">
+         {ukSingleArtwork.images.length != 0 ? (
+          <img 
+            src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}
+          ></img>
+        ) : (
+          <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
+        )}
+        <p className="">© Victoria and Albert Museum, London</p> 
+          <button
+        className="button is-normal is-rounded is-dark is-primary"
+          aria-label="add to exhibit"
+          onClick={() => {
+            addToExhibit();
+          }}
+          disabled={addBtnDisable}
+        >
+          Add To My Exhibit
+        </button>
+          <p>
           By:
           {ukSingleArtwork.artistMakerPerson.length != 0 ? (
             <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span>
@@ -81,23 +100,8 @@ const UKSingleArt = () => {
         ) : (
           <p>{ukSingleArtwork.briefDescription}</p>
         )}
-        {ukSingleArtwork.images.length != 0 ? (
-          <img
-            src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}
-          ></img>
-        ) : (
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
-        )}
-        <p>© Victoria and Albert Museum, London</p>
-        <button
-          aria-label="add to exhibit"
-          onClick={() => {
-            addToExhibit();
-          }}
-          disabled={addBtnDisable}
-        >
-          Add To My Exhibit
-        </button>
+       
+     
         <h3>History: </h3>
         <p>
           This piece was added to V&A collection in the year{" "}
@@ -131,6 +135,8 @@ const UKSingleArt = () => {
           <li>CASE: {ukSingleArtwork.galleryLocations[0].case}</li>
           <li>SHELF: {ukSingleArtwork.galleryLocations[0].shelf}</li>
         </ul>
+       </section>
+      
       </article>
     );
 };
