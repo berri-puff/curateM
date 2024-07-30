@@ -67,8 +67,9 @@ const UKSingleArt = () => {
         <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
         <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
        
-       <section className="box">
-         {ukSingleArtwork.images.length != 0 ? (
+       <section className="columns">
+        <section className="column">
+  {ukSingleArtwork.images.length != 0 ? (
           <img 
             src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}
           ></img>
@@ -86,12 +87,14 @@ const UKSingleArt = () => {
         >
           Add To My Exhibit
         </button>
-          <p>
-          By:
+        </section>
+       <section className="column">
+ <p>
+          Artist:
           {ukSingleArtwork.artistMakerPerson.length != 0 ? (
-            <span>{ukSingleArtwork.artistMakerPerson[0].name["text"]}</span>
+            <span> {ukSingleArtwork.artistMakerPerson[0].name["text"]}</span>
           ) : (
-            <span>Unknown</span>
+            <span> Unknown</span>
           )}
         </p>
         <h3>About: </h3>
@@ -100,42 +103,43 @@ const UKSingleArt = () => {
         ) : (
           <p>{ukSingleArtwork.briefDescription}</p>
         )}
-       
-     
-        <h3>History: </h3>
         <p>
-          This piece was added to V&A collection in the year{" "}
-          <span>{ukSingleArtwork.accessionYear}</span>{" "}
+          This piece was added to V&A collection in the year 
+          <span>{ukSingleArtwork.accessionYear}</span>
         </p>
         {ukSingleArtwork.objectHistory != "" ? (
           <p>{ukSingleArtwork.objectHistory}</p>
         ) : null}
-        Made in{" "}
+        Made in
         {ukSingleArtwork.placesOfOrigin.length != 0 ? (
           <span>{ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
         ) : (
           <span>Unknown</span>
         )}
         <p>
-          {" "}
-          This piece of work is estimated to be made in the{" "}
+        
+          This piece of work is estimated to be made in 
           {ukSingleArtwork.productionDates.length != 0 ? (
             <span>{ukSingleArtwork.productionDates[0].date.text}</span>
-          ) : null}{" "}
+          ) : null}
         </p>
-        <p>
-          This artwork was recorded on{" "}
-          <span>{ukSingleArtwork.recordCreationDate}</span> in V7A Collection
-          system.
-        </p>
-        <h3>Want to find it? </h3>
+        <section className="column">
+ <h3>Where to find it</h3>
         <p>It is currently kept in Victoria and Albert Museum</p>
         <ul>
           <li>BOX: {ukSingleArtwork.galleryLocations[0].box}</li>
           <li>CASE: {ukSingleArtwork.galleryLocations[0].case}</li>
           <li>SHELF: {ukSingleArtwork.galleryLocations[0].shelf}</li>
         </ul>
+        </section>
+  
        </section>
+    
+   </section>
+        
+
+       
+     
       
       </article>
     );
