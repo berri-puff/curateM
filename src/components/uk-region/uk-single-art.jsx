@@ -64,10 +64,21 @@ const UKSingleArt = () => {
     return (
       <article>
         {ukSingleArtwork.titles.length != 0 ? (
-          <h1 className="title is-3">{ukSingleArtwork.titles[0].title} </h1>
+          <h2 className="title is-4">{ukSingleArtwork.titles[0].title} </h2>
         ) : (
-          <h1 className="title is-3">Untitled Artwork</h1>
+          <h2 className="title is-4">Untitled Artwork</h2>
         )}
+             <p className="subtitle is-6">
+            
+              {ukSingleArtwork.artistMakerPerson.length != 0 ? (
+                <span>
+               
+                  {ukSingleArtwork.artistMakerPerson[0].name["text"]}
+                </span>
+              ) : (
+                <span> Unknown</span>
+              )}
+            </p>
 
         <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
         <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
@@ -85,7 +96,7 @@ const UKSingleArt = () => {
               © Victoria and Albert Museum, London
             </p>
             <button
-              className="button is-normal is-rounded is-dark is-primary"
+              className="button is-normal is-rounded is-dark is-primary mr-3"
               aria-label="add to exhibit"
               onClick={() => {
                 addToExhibit();
@@ -94,32 +105,47 @@ const UKSingleArt = () => {
             >
               Add To My Exhibit
             </button>
+            <div className="dropdown is-hoverable">
+                <div className="dropdown-trigger">
+                  <button
+                    className="button is-normal is-link is-light is-rounded"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu4"
+                  >
+                    <p>Where to find it <IoMdArrowDropdown /></p>
+                  </button>
+                </div>
+                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div className="dropdown-content">
+                    <p className="dropdown-item">
+                      BOX: {ukSingleArtwork.galleryLocations[0].box}
+                    </p>
+                    <p className="dropdown-item">
+                      CASE: {ukSingleArtwork.galleryLocations[0].case}
+                    </p>
+                    <p className="dropdown-item">
+                      SHELF: {ukSingleArtwork.galleryLocations[0].shelf}
+                    </p>
+                  </div>
+                </div>
+              </div>
           </section>
+
           <section className="column">
-            <p>
-              Artist:
-              {ukSingleArtwork.artistMakerPerson.length != 0 ? (
-                <span>
-                  {" "}
-                  {ukSingleArtwork.artistMakerPerson[0].name["text"]}
-                </span>
-              ) : (
-                <span> Unknown</span>
-              )}
-            </p>
-            <h3>About: </h3>
+          
+            <h2 className="title title-2">About: </h2> 
+        
             {ukSingleArtwork.summaryDescription ? (
               <p>{ukSingleArtwork.summaryDescription}</p>
             ) : (
               <p> {ukSingleArtwork.briefDescription}</p>
             )}
-            <p>
-              This piece was added to V&A collection in the year
-              <span> {ukSingleArtwork.accessionYear}</span>
-            </p>
+           <h2 className="title title-2">History: </h2>
             {ukSingleArtwork.objectHistory != "" ? (
               <p> {ukSingleArtwork.objectHistory}</p>
-            ) : <p>Little to no history can be found for this artwork.</p>}
+            ) : (
+              <p>Little to no history can be found for this artwork.</p>
+            )}
             Made in
             {ukSingleArtwork.placesOfOrigin.length != 0 ? (
               <span> {ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
@@ -127,33 +153,20 @@ const UKSingleArt = () => {
               <span>Unknown</span>
             )}
             <p>
-              This piece of work is estimated to be made in
+              Production date for this is estimated to be around
               {ukSingleArtwork.productionDates.length != 0 ? (
                 <span> {ukSingleArtwork.productionDates[0].date.text}</span>
               ) : null}
             </p>
             <section className="column">
-              <div class="dropdown is-hoverable">
-                <div class="dropdown-trigger">
-                  <button
-                    class="button"
-                    aria-haspopup="true"
-                    aria-controls="dropdown-menu4"
-                  >
-                     <h3>Where to find it <IoMdArrowDropdown />
-                     </h3>
-                   
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                  <div class="dropdown-content">
-                  <p className="dropdown-item">BOX: {ukSingleArtwork.galleryLocations[0].box}</p>
-                <p className="dropdown-item">CASE: {ukSingleArtwork.galleryLocations[0].case}</p>
-                <p  className="dropdown-item">SHELF: {ukSingleArtwork.galleryLocations[0].shelf}</p>
-                     
-                    </div>
-                  </div>
-                </div>
+                 <p>
+                 {ukSingleArtwork.titles.length != 0 ? (
+          <span>{ukSingleArtwork.titles[0].title} </span>
+        ) : (
+          <span>This work </span>
+        )} was added to V&A collection in the year
+              <span> {ukSingleArtwork.accessionYear}</span>
+            </p>
            
             </section>
           </section>
