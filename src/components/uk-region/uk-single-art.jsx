@@ -11,7 +11,7 @@ const UKSingleArt = () => {
   const [loadingState, setLoadingState] = useState([false]);
   const [error, setError] = useState([null]);
   const [feedbackMsg, setFeedbackMsg] = useState("");
-  const [exhibitLoad, setExhibitLoad] = useState(false);
+
   const [addBtnDisable, setAddBtnDisable] = useState(false);
 
   const { artId } = useParams();
@@ -33,7 +33,12 @@ const UKSingleArt = () => {
     setAddBtnDisable(true);
     setExhibitLoad(true);
     setExhibit((currentExhibit) => {
-      if (Array.isArray(currentExhibit)) {
+      const alreadyInGallery = currentExhibit.some(item => item.systemNumber === ukSingleArtwork.systemNumber);
+      if (alreadyInGallery) {
+        setFeedbackMsg('This artwork is already in your gallery!');
+        return currentExhibit
+      } 
+      else if (Array.isArray(currentExhibit)) {
         setAddBtnDisable(false);
         setExhibitLoad(false);
         setFeedbackMsg("Artwork added to your list successfully!");
@@ -81,7 +86,6 @@ const UKSingleArt = () => {
             </p>
 
         <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
-        <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
 
         <section className="columns">
           <section className="column">
