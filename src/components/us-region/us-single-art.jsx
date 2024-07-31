@@ -63,17 +63,19 @@ else if (error && usSingleArtwork.length === 0) {
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
       <article>
-        <h1>This will contain one single us art piece and their information</h1>
+        <h2 className="title is-4"> {usSingleArtwork.title}</h2> 
+        <p className="subtitle is-6">By: {usSingleArtwork.creators[0].description}</p>
         <p>{feedbackMsg != '' ? <p>{feedbackMsg}</p> : null }</p>
 <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
-        {usSingleArtwork.title}
-        <p>By: {usSingleArtwork.creators[0].description}</p>
-        <h3>ABOUT:</h3>
-        <p>{usSingleArtwork.description}</p>
-        <img src={usSingleArtwork.images.web.url}/>
-
-        <button
+       <section className="columns">
+      <section className="column">
+ <img src={usSingleArtwork.images.web.url}/>
+ <p className="subtitle is-7">
+              © The Cleveland Museum of Art
+            </p>
+  <button
           aria-label="add to exhibit"
+            className="button is-normal is-rounded is-dark is-primary mr-3"
           onClick={() => {
             addToExhibit();
           }}
@@ -81,6 +83,13 @@ else if (error && usSingleArtwork.length === 0) {
         >
           Add To My Exhibit
         </button>
+      </section>
+      <section className="column">
+         <h3>ABOUT:</h3>
+        <p>{usSingleArtwork.description}</p>
+       
+
+       
 
         <h3>History:</h3>
         <p>
@@ -93,6 +102,11 @@ else if (error && usSingleArtwork.length === 0) {
 
         <h3>Want to find it?</h3>
         <p>In the department of {usSingleArtwork.department} - {usSingleArtwork.current_location}</p>
+
+      </section>
+       </section>
+       
+       
       </article>
     );
   }
