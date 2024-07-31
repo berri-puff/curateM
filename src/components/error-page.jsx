@@ -1,6 +1,15 @@
-const Error = ({status, msg}) =>{
-    console.log(status, msg, 'in the error')
-    return <h1>Oops, art block! {status === null? <span>400 </span> : <span>{status},</span>} {msg === null ? <span>Bad Request</span> : <span>{msg}</span>}</h1>
-}
+const Error = ({status, msg}) => {
+  return (
+    <article className="message is-danger">
+      <h2 className="message-header ">Oops, art block!</h2>
+      <section className="message-body">
+        <p>Something went wrong...
+            </p>
+        {status == null ? <p> 400 </p> : <p> {status}</p>}
+        {msg == null ? <p>Bad Request</p> : <p> {msg}</p>}
+      </section>
+    </article>
+  );
+};
 
-export default Error
+export default Error;
