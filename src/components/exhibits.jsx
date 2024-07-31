@@ -4,7 +4,6 @@ import { ExhibitContext } from "../context/exhibit-context";
 const Exhibits = () => {
   const { exhibit } = useContext(ExhibitContext);
 
-
   if (exhibit.length === 0) {
     return (
       <>
@@ -19,10 +18,14 @@ const Exhibits = () => {
     return (
       <article>
         <h1>Your very own curated exhibit!</h1>
+       <section className="columns" id="exhibit-view">
+
+
+      
         {exhibit.map((artwork) => {
           if (artwork.hasOwnProperty("systemNumber")) {
             return (
-              <article>
+              <section className="column">
                 {artwork.images.length != 0 ? (
                   <img
                   width={300}
@@ -44,7 +47,7 @@ const Exhibits = () => {
                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
                 )}
 
-                <p className="subtitle subtitle-6">© Victoria and Albert Museum, London</p>
+                <p>© Victoria and Albert Museum, London</p>
                 <p>ID: {artwork.systemNumber}</p>
                 <p>
                   Found in V&A Museum Collection, on shelf
@@ -70,11 +73,11 @@ const Exhibits = () => {
                 <a target="blank" href="https://www.vam.ac.uk/info/contact-us">
                   Victoria and Albert Museum
                 </a>
-              </article>
+              </section>
             );
           } else {
             return (
-              <article>
+              <section className="column " id="exhibit-view">
                 <img
                   src={artwork.images.web.url}
                   alt="No description given"
@@ -92,10 +95,11 @@ const Exhibits = () => {
                 >
                   Cleveland Museum of Art
                 </a>
-              </article>
+              </section>
             );
           }
         })}
+         </section>
       </article>
     );
 };
