@@ -3,8 +3,7 @@ import { ExhibitContext } from "../context/exhibit-context";
 
 const Exhibits = () => {
   const { exhibit } = useContext(ExhibitContext);
-  console.log(exhibit, "showing in the exhibit page");
-
+console.log(exhibit, 'in the page')
   if (exhibit.length === 0) {
     return (
       <>
@@ -19,12 +18,18 @@ const Exhibits = () => {
     return (
       <article>
         <h1>Your very own curated exhibit!</h1>
+       <section className="columns" id="exhibit-view">
+
+
+      
         {exhibit.map((artwork) => {
           if (artwork.hasOwnProperty("systemNumber")) {
             return (
-              <article>
-                {artwork.images.length != 0 ? (
+              <section className="column">
+                {artwork.images != 0 ? (
                   <img
+                  width={300}
+                  height="auto"
                     src={`https://framemark.vam.ac.uk/collections/${artwork.images[0]}/full/600,400/0/default.jpg`}
                     alt={
                       artwork.physicalDescription ? (
@@ -35,31 +40,44 @@ const Exhibits = () => {
                     }
                   ></img>
                 ) : (
-                  <p>placeholder insert here</p>
+                  <img 
+                  
+                  width={300}
+                  height="auto"
+                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
                 )}
+
                 <p>© Victoria and Albert Museum, London</p>
                 <p>ID: {artwork.systemNumber}</p>
                 <p>
                   Found in V&A Museum Collection, on shelf
-                  {artwork.galleryLocations[0].shelf}, box
-                  {artwork.galleryLocations[0].box}, in case
-                  {artwork.galleryLocations[0].case}
+                  {artwork.galleryLocations[0].shelf ? (
+                    <span> {artwork.galleryLocations[0].shelf}</span>
+                  ) : (
+                    <span>N/A</span>
+                  )}
+                  , box
+                  {artwork.galleryLocations[0].box ? (
+                    <span> {artwork.galleryLocations[0].box} </span>
+                  ) : (
+                    <span> N/A</span>
+                  )}
+                  , in case
+                  {artwork.galleryLocations[0].case ? (
+                    <span> {artwork.galleryLocations[0].case} </span>
+                  ) : (
+                    <span> N/A</span>
+                  )}
                 </p>
-                <p>
-                  Contact
-                  <a
-                    target="blank"
-                    href="https://www.vam.ac.uk/info/contact-us"
-                  >
-                    Victoria and Albert Museum
-                  </a>
-                  regarding their pieces
-                </p>
-              </article>
+
+                <a target="blank" href="https://www.vam.ac.uk/info/contact-us">
+                  Victoria and Albert Museum
+                </a>
+              </section>
             );
           } else {
             return (
-              <article>
+              <section className="column " id="exhibit-view">
                 <img
                   src={artwork.images.web.url}
                   alt="No description given"
@@ -70,20 +88,18 @@ const Exhibits = () => {
                   Found in Cleveland Museum of Art, {artwork.department},
                   {artwork.currentLocation}
                 </p>
-                <p>
-                  Contact
-                  <a
-                    target="blank"
-                    href="https://www.clevelandart.org/contact-us"
-                  >
-                    Cleveland Museum of Art
-                  </a>
-                  regarding their pieces
-                </p>
-              </article>
+
+                <a
+                  target="blank"
+                  href="https://www.clevelandart.org/contact-us"
+                >
+                  Cleveland Museum of Art
+                </a>
+              </section>
             );
           }
         })}
+         </section>
       </article>
     );
 };

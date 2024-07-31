@@ -14,7 +14,7 @@ const USSingleArt = () => {
   const [error, setError] = useState([null]);
   const [feedbackMsg, setFeedbackMsg] = useState("");
   const [addBtnDisable, setAddBtnDisable] = useState(false);
-  const [exhibitLoad, setExhibitLoad] = useState(false);
+
   const { artId } = useParams();
 
   useEffect(() => {
@@ -30,20 +30,22 @@ const USSingleArt = () => {
       });
   }, []);
 
-  console.log(error);
-
   const addToExhibit = () => {
     setAddBtnDisable(true);
-    setExhibitLoad(true);
-    setExhibit((currentExhibit) => {
-      if (Array.isArray(currentExhibit)) {
+        setExhibit((currentExhibit) => {
+      const alreadyInGallery = currentExhibit.some(item => item.id === usSingleArtwork.id);
+      if (alreadyInGallery) {
+        setFeedbackMsg('This artwork is already in your gallery!');
+        return currentExhibit
+      } 
+      else if (Array.isArray(currentExhibit)) {
         setAddBtnDisable(false);
-        setExhibitLoad(false);
+        
         setFeedbackMsg("Artwork added to your list successfully!");
         return [...currentExhibit, usSingleArtwork];
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
-        setExhibitLoad(false);
+        
         setFeedbackMsg("Artwork added to your list successfully!");
         return [usSingleArtwork];
       } else {
@@ -72,7 +74,7 @@ const USSingleArt = () => {
           By: {usSingleArtwork.creators[0].description}
         </p>
         <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
-        <p>{exhibitLoad ? <p>adding to your exhibit</p> : null}</p>
+  
         <section className="columns">
           <section className="column">
             <img src={usSingleArtwork.images.web.url} />
