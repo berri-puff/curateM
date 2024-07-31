@@ -90,7 +90,7 @@ return (
           />
         </label>
 
-        <button aria-label="search" disabled={disableSearchBtn}>Curate!</button>
+        <button aria-label="search" disabled={disableSearchBtn} className="button is-normal is-rounded is-light is-primary">Curate!</button>
          </form>
         
          {filteredArtworks.map((artwork) =>{
@@ -110,8 +110,8 @@ return (
             
          })}
        
-          <button aria-label="previous " onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false}>Previous</button>
-            <button aria-label="Next " onClick={()=>{handleNextBatchBtn()}}>Next</button>      
+          <button aria-label="previous " onClick={()=>{handlepreviousBatchBtn()}} disabled={minimum === 0? true: false} className="button is-medium is-rounded is-light is-link mr-3">Previous</button>
+            <button aria-label="Next " onClick={()=>{handleNextBatchBtn()}} className="button is-medium is-rounded is-light is-link">Next</button>      
     </article>
    )
 }
