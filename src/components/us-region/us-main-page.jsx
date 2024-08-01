@@ -141,21 +141,23 @@ const USRegion = () => {
         })}
 </section>
         <button
+        id="page-btn"
           aria-label="previous "
           onClick={() => {
             handlepreviousBatchBtn();
           }}
           disabled={minimum === 0 ? true : false}
-          className="button is-medium is-rounded is-light is-link mr-3"
+          className="button is-medium is-rounded mr-3"
         >
           Previous
         </button>
         <button
+        id="page-btn"
           aria-label="Next "
           onClick={() => {
             handleNextBatchBtn();
           }}
-          className="button is-medium is-rounded is-light is-link"
+          className="button is-medium is-rounded"
         >
           Next
         </button>

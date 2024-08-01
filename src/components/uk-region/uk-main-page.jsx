@@ -200,7 +200,8 @@ const UKRegion = () => {
    
 
         <button 
-        className="button is-medium is-rounded is-light is-link"
+        id="page-btn"
+        className="button is-medium is-rounded"
           aria-label="new batch button"
           onClick={() => {
             handleMoreBtn();
