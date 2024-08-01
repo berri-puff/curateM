@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import { ExhibitContext } from "../../context/exhibit-context";
 import { getsUkArtworkById } from "../../../utils/api";
 import { IoMdArrowDropdown } from "react-icons/io";
+import toast, { Toaster } from 'react-hot-toast';
 
 const UKSingleArt = () => {
   const [ukSingleArtwork, setUkSingleArtwork] = useState([]);
   const { setExhibit } = useContext(ExhibitContext);
   const [loadingState, setLoadingState] = useState([false]);
   const [error, setError] = useState([null]);
-  const [feedbackMsg, setFeedbackMsg] = useState("");
+
 
   const [addBtnDisable, setAddBtnDisable] = useState(false);
 
@@ -31,27 +32,44 @@ const UKSingleArt = () => {
 
   const addToExhibit = () => {
     setAddBtnDisable(true);
-    setExhibitLoad(true);
+
     setExhibit((currentExhibit) => {
       const alreadyInGallery = currentExhibit.some(item => item.systemNumber === ukSingleArtwork.systemNumber);
       if (alreadyInGallery) {
-        setFeedbackMsg('This artwork is already in your gallery!');
+        toast("This artwork is already in your gallery!", {
+          icon: <PiPaintRollerFill />,
+          duration: 4000,
+             position: 'bottom-center'
+        });
+        setAddBtnDisable(false)
         return currentExhibit
       } 
       else if (Array.isArray(currentExhibit)) {
         setAddBtnDisable(false);
-        setExhibitLoad(false);
-        setFeedbackMsg("Artwork added to your list successfully!");
+       
+        toast.success("Artwork added to your list successfully!", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
+        setAddBtnDisable(true)
         return [...currentExhibit, ukSingleArtwork];
+        
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
-        setExhibitLoad(false);
-        setFeedbackMsg("Artwork added to your list successfully!");
+      
+        toast.success("Artwork added to your list successfully!", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
+        setAddBtnDisable(true)
         return [ukSingleArtwork];
       } else {
         setAddBtnDisable(false);
         setLoadingState(false);
-        setFeedbackMsg("Artwork not added to the page :(");
+        toast.error("Artwork not added to the page :(", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
       }
     });
   };
@@ -85,8 +103,7 @@ const UKSingleArt = () => {
               )}
             </p>
 
-        <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
-
+            <Toaster/> 
         <section className="columns">
           <section className="column">
             {ukSingleArtwork.images.length != 0 ? (

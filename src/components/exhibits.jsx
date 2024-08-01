@@ -3,7 +3,7 @@ import { ExhibitContext } from "../context/exhibit-context";
 
 const Exhibits = () => {
   const { exhibit } = useContext(ExhibitContext);
-console.log(exhibit, 'in the page')
+
   if (exhibit.length === 0) {
     return (
       <>
