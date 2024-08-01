@@ -99,7 +99,7 @@ const USRegion = () => {
             Curate!
           </button>
         </form>
-
+        <section id="art-container">
         {filteredArtworks.map((artwork) => {
           const imageUrl = artwork?.alternate_images[0]?.print?.url;
           return (
@@ -139,7 +139,7 @@ const USRegion = () => {
             </section>
           );
         })}
-
+</section>
         <button
           aria-label="previous "
           onClick={() => {
