@@ -55,6 +55,7 @@ const UKRegion = () => {
       );
     }
   }
+  console.log(ukArtworks)
 
   const handleCategory = (event) => {
     setCategoryFilter(event.target.value);
@@ -158,14 +159,14 @@ const UKRegion = () => {
           </div>
           <button id="curate-btn"className="button is-normal is-rounded is-light is-primary">Curate!</button>
         </form>
-  
-        {ukArtworks.map((artwork) => {
+  <section id="art-container">
+     {ukArtworks.map((artwork) => {
+    
           return (
-            
             <section className="card">
               <Link to={`/uk/${artwork.systemNumber}`} key={artwork.systemNumber}>
-    <header className="card-header center">
-                  {artwork["_primaryTitle"] ?  <p className="card-header-title">{artwork["_primarytitle"]}</p> : <p className="card-header-title">Untitled</p>}  
+    <header id="art-title" className="card-header center">
+                  {artwork["_primaryTitle"] ?  <p className="card-header-title">{artwork["_primaryTitle"]}</p> : <p className="card-header-title">Untitled</p>}  
             </header>
 
             <div className="card-image">
@@ -195,6 +196,8 @@ const UKRegion = () => {
            </section>
           );
         })}
+  </section>
+   
 
         <button 
         className="button is-medium is-rounded is-light is-link"
