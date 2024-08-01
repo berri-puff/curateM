@@ -7,13 +7,18 @@
     text-align: center;
 }
 
-h1{
+#main-title{
   
         font-family: "Satisfy", cursive;
         font-weight: 600;
         font-style: bold;
         font-size: 100px;
-      
+        color: #5c3b44;
+        border: 2px, black, solid;
+        margin-top: 5px;
+        padding: 7px;
+        display: inline-flex
+    
 }
 
  #exhibit-view{
