@@ -135,5 +135,13 @@ box-shadow: 2px 2px 5px  #5c3b44;
 }
 
 #category-tag{
-    color:   rgb(23, 57, 7);
+    color:    rgb(139, 178, 139);
 }
+
+#single-art{
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+

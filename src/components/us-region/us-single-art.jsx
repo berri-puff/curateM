@@ -85,7 +85,7 @@ const USSingleArt = () => {
   }
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
-      <article>
+      <article id="single-art">
         <Toaster/>
         <h2 className="title is-4"> {usSingleArtwork.title}</h2>
         <p className="subtitle is-6">
@@ -110,6 +110,7 @@ const USSingleArt = () => {
             <div className="dropdown is-hoverable">
                 <div className="dropdown-trigger">
                   <button
+                  id="curate-btn"
                     className="button is-normal is-link is-light is-rounded"
                     aria-haspopup="true"
                     aria-controls="dropdown-menu4"
@@ -151,11 +152,7 @@ const USSingleArt = () => {
 
             </section>
            
-            {/* <h3>Want to find it?</h3>
-            <p>
-              In the department of {usSingleArtwork.department} -{" "}
-              {usSingleArtwork.current_location}
-            </p> */}
+      
           </section>
         </section>
       </article>

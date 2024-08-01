@@ -85,11 +85,11 @@ const UKSingleArt = () => {
     return <Error status={error.status} msg={msg} />;
   } else
     return (
-      <article>
+      <article id="single-art">
         {ukSingleArtwork.titles.length != 0 ? (
-          <h2 className="title is-4">{ukSingleArtwork.titles[0].title} </h2>
+          <h2 className="title is-2">{ukSingleArtwork.titles[0].title} </h2>
         ) : (
-          <h2 className="title is-4">Untitled Artwork</h2>
+          <h2 className="title is-2">Untitled Artwork</h2>
         )}
              <p className="subtitle is-6">
             
@@ -129,11 +129,12 @@ const UKSingleArt = () => {
             <div className="dropdown is-hoverable">
                 <div className="dropdown-trigger">
                   <button
-                    className="button is-normal is-link is-light is-rounded"
+                  id="curate-btn"
+                    className="button is-normal is-primary is-light is-rounded"
                     aria-haspopup="true"
                     aria-controls="dropdown-menu4"
                   >
-                    <p>Where to find it <IoMdArrowDropdown /></p>
+                    <p>Where to find it < IoMdArrowDropdown /></p>
                   </button>
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu4" role="menu">
