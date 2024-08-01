@@ -5,6 +5,9 @@ import { ExhibitContext } from "../../context/exhibit-context";
 import { splitTime } from "../../../utils/splitTime";
 import Error from "../error-page";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { PiPaintRollerFill } from "react-icons/pi";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const USSingleArt = () => {
   const [usSingleArtwork, setUsSingleArtwork] = useState([]);
@@ -35,23 +38,37 @@ const USSingleArt = () => {
         setExhibit((currentExhibit) => {
       const alreadyInGallery = currentExhibit.some(item => item.id === usSingleArtwork.id);
       if (alreadyInGallery) {
-        setFeedbackMsg('This artwork is already in your gallery!');
+        toast("This artwork is already in your gallery!", {
+          icon: <PiPaintRollerFill />,
+          duration: 4000,
+             position: 'bottom-center'
+        });
+       
         return currentExhibit
       } 
       else if (Array.isArray(currentExhibit)) {
         setAddBtnDisable(false);
         
-        setFeedbackMsg("Artwork added to your list successfully!");
+        toast.success("Artwork added to your list successfully!", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
         return [...currentExhibit, usSingleArtwork];
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
         
-        setFeedbackMsg("Artwork added to your list successfully!");
+        toast.success("Artwork added to your list successfully!", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
         return [usSingleArtwork];
       } else {
         setAddBtnDisable(false);
         setLoadingState(false);
-        setFeedbackMsg("Artwork not added to the page :(");
+        toast.error("Error, can not add to gallery, try again later", {
+          duration: 4000,
+             position: 'bottom-center'
+        });
       }
     });
   };
@@ -69,11 +86,12 @@ const USSingleArt = () => {
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
       <article>
+        <Toaster/>
         <h2 className="title is-4"> {usSingleArtwork.title}</h2>
         <p className="subtitle is-6">
           By: {usSingleArtwork.creators[0].description}
         </p>
-        <p>{feedbackMsg != "" ? <p>{feedbackMsg}</p> : null}</p>
+
   
         <section className="columns">
           <section className="column">

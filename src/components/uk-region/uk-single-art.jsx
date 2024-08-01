@@ -11,7 +11,7 @@ const UKSingleArt = () => {
   const { setExhibit } = useContext(ExhibitContext);
   const [loadingState, setLoadingState] = useState([false]);
   const [error, setError] = useState([null]);
-  const [feedbackMsg, setFeedbackMsg] = useState("");
+
 
   const [addBtnDisable, setAddBtnDisable] = useState(false);
 
@@ -36,30 +36,39 @@ const UKSingleArt = () => {
     setExhibit((currentExhibit) => {
       const alreadyInGallery = currentExhibit.some(item => item.systemNumber === ukSingleArtwork.systemNumber);
       if (alreadyInGallery) {
-        toast.error('This artwork is already in your gallery!', {
-          duration: 4000
+        toast("This artwork is already in your gallery!", {
+          icon: <PiPaintRollerFill />,
+          duration: 4000,
+             position: 'bottom-center'
         });
+        setAddBtnDisable(false)
         return currentExhibit
       } 
       else if (Array.isArray(currentExhibit)) {
         setAddBtnDisable(false);
        
         toast.success("Artwork added to your list successfully!", {
-          duration: 4000
+          duration: 4000,
+             position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [...currentExhibit, ukSingleArtwork];
+        
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
       
         toast.success("Artwork added to your list successfully!", {
-          duration: 4000
+          duration: 4000,
+             position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [ukSingleArtwork];
       } else {
         setAddBtnDisable(false);
         setLoadingState(false);
-        toast.info("Artwork not added to the page :(", {
-          duration: 4000
+        toast.error("Artwork not added to the page :(", {
+          duration: 4000,
+             position: 'bottom-center'
         });
       }
     });
@@ -94,13 +103,7 @@ const UKSingleArt = () => {
               )}
             </p>
 
-            <Toaster
-  containerStyle={{
-    position: "left",
-  }
-  }
-/>
-
+            <Toaster/> 
         <section className="columns">
           <section className="column">
             {ukSingleArtwork.images.length != 0 ? (
