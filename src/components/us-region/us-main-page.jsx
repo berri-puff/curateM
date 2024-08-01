@@ -131,8 +131,8 @@ const USRegion = () => {
          
                
                   <section className="card-footer">
-                  <p className="card-footer-item">© The Cleveland Museum of Art</p>
-                  <p className="card-footer-item"><FaTag /> {artwork.type}</p>
+                  <p id="copyright" className="card-footer-item">© The Cleveland Museum of Art</p>
+                  <p id="category-tag"className="card-footer-item"><FaTag /> {artwork.type}</p>
                   </section>
              
               </Link>

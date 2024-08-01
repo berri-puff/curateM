@@ -165,7 +165,7 @@ const UKRegion = () => {
           return (
             <section className="card">
               <Link to={`/uk/${artwork.systemNumber}`} key={artwork.systemNumber}>
-    <header id="art-title" className="card-header center">
+    <header className="card-header center">
                   {artwork["_primaryTitle"] ?  <p className="card-header-title">{artwork["_primaryTitle"]}</p> : <p className="card-header-title">Untitled</p>}  
             </header>
 
@@ -189,8 +189,8 @@ const UKRegion = () => {
                
               
               <footer className="card-footer"> 
-                <p className="card-footer-item">© Victoria and Albert Museum, London</p>
- <p className="card-footer-item"><FaTag /> Category : {artwork.objectType}</p>
+                <p id="copyright"className="card-footer-item">© Victoria and Albert Museum, London</p>
+ <p id="category-tag"className="card-footer-item"><FaTag /> Category : {artwork.objectType}</p>
               </footer>
             </Link>
            </section>

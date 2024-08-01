@@ -6,6 +6,7 @@
 * {
     text-align: center;
     font-family: "Changa", sans-serif;
+    box-sizing: border-box;
 }
 
 #page-title {
@@ -112,4 +113,27 @@ margin: 20px;
 .card:hover {
 box-shadow: 2px 2px 5px  #5c3b44;
 
+}
+
+.card-image{
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 7px;
+    object-fit: contain;
+}
+
+.card-content{
+    color: black;
+    font-weight: 500;
+}
+
+#copyright{
+    color: black;
+    font-weight: 500;
+    font-size: small;
+}
+
+#category-tag{
+    color:   rgb(23, 57, 7);
 }
