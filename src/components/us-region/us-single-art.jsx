@@ -89,7 +89,7 @@ const USSingleArt = () => {
         <Toaster/>
         <h2 className="title is-4"> {usSingleArtwork.title}</h2>
         <p className="subtitle is-6">
-          By: {usSingleArtwork.creators[0].description}
+          By: {usSingleArtwork.creators.length != 0 ? <span>{usSingleArtwork.creators[0].description}</span>: <span>Unknown Artist</span>}
         </p>
 
   

@@ -77,8 +77,8 @@ const USRegion = () => {
     return (
       <article>
         <h1 id="page-title">US Artworks</h1>
-        <form onSubmit={queryUsArtworks}>
-          <label htmlFor="keyword Search">
+        <form id="us-filter"onSubmit={queryUsArtworks} className="level">
+          <label id=""htmlFor="keyword Search" className="level-item has-text-centered">
             Search All US works
             <input
               className="input is-primary is-rounded w-150 "
@@ -92,8 +92,9 @@ const USRegion = () => {
 
           <button
             aria-label="search"
+            id="curate-btn"
             disabled={disableSearchBtn}
-            className="button is-normal is-rounded is-light is-primary"
+            className="button is-normal is-rounded is-light is-primary level-item has-text-centered"
           >
             Curate!
           </button>
