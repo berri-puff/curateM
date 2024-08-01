@@ -43,7 +43,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
-       
+       setAddBtnDisable(true)
         return currentExhibit
       } 
       else if (Array.isArray(currentExhibit)) {
@@ -53,6 +53,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [...currentExhibit, usSingleArtwork];
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
@@ -61,6 +62,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [usSingleArtwork];
       } else {
         setAddBtnDisable(false);

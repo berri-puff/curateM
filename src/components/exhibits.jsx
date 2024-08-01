@@ -6,13 +6,13 @@ const Exhibits = () => {
 
   if (exhibit.length === 0) {
     return (
-      <>
+      <article className="empty-exhibit">
         <h1>
           All your temporary artwork will be shown here, it is currently empty
           though!
         </h1>
         <p>Start exploring artworks!</p>
-      </>
+      </article>
     );
   } else
     return (
@@ -25,7 +25,7 @@ const Exhibits = () => {
         {exhibit.map((artwork) => {
           if (artwork.hasOwnProperty("systemNumber")) {
             return (
-              <section className="column">
+              <section id="single-card"className="column">
                 {artwork.images != 0 ? (
                   <img
                   width={300}
@@ -77,8 +77,10 @@ const Exhibits = () => {
             );
           } else {
             return (
-              <section className="column " id="exhibit-view">
+              <section id="single-card" className="column ">
                 <img
+                width={300}
+                height="auto"
                   src={artwork.images.web.url}
                   alt="No description given"
                 ></img>
