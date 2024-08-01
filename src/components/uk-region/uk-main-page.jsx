@@ -109,7 +109,7 @@ const UKRegion = () => {
   if (initialLoading) {
     return (
       <article>
-        <h1>UK Artworks</h1>
+        <h1 id="page-title"className="level-center">UK Artworks</h1>
         <progress class="progress is-small is-primary" max="5">
           5%
         </progress>
@@ -131,7 +131,7 @@ const UKRegion = () => {
   } else {
     return (
       <article>
-        <h1>UK Artworks</h1>
+        <h1 id="page-title">UK Artworks</h1>
         <form onSubmit={queryUkArtByFilter}>
           <div className="select is-rounded is-primary">
   <select onChange={handleCategory} defaultValue={categoryFilter} >

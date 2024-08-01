@@ -17,7 +17,7 @@ const Exhibits = () => {
   } else
     return (
       <article>
-        <h1>Your very own curated exhibit!</h1>
+        <h1 id="page-title">Exhibition</h1>
        <section className="columns" id="exhibit-view">
 
 

@@ -7,6 +7,17 @@
     text-align: center;
 }
 
+#page-title {
+    font-family: "Changa", sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+    color: rgb(23, 57, 7);
+    margin: 3px;
+    display: block;
+    padding: 3px;
+    text-decoration:overline rgb(59, 8, 8);
+}
+
 #main-title{
   
         font-family: "Satisfy", cursive;

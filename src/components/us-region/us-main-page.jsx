@@ -63,7 +63,7 @@ const USRegion = () => {
   if (loading) {
     return (
       <article>
-        <h1>US Artworks</h1>
+        <h1 id="page-title">US Artworks</h1>
         <progress className="progress is-small is-primary" max="100">
           20%
         </progress>
@@ -76,7 +76,7 @@ const USRegion = () => {
   } else {
     return (
       <article>
-        <h1>US Artworks</h1>
+        <h1 id="page-title">US Artworks</h1>
         <form onSubmit={queryUsArtworks}>
           <label htmlFor="keyword Search">
             Search All US works
