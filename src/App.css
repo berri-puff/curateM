@@ -12,12 +12,12 @@
         font-family: "Satisfy", cursive;
         font-weight: 600;
         font-style: bold;
-        font-size: 100px;
+        font-size: 66px;
         color: #5c3b44;
-        border: 2px, black, solid;
         margin-top: 5px;
+        margin-left: 10px;
         padding: 7px;
-        display: inline-flex
+        text-shadow: 2px 2px 2px rgb(91, 28, 28);
     
 }
 
