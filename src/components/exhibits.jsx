@@ -54,7 +54,7 @@ const Exhibits = () => {
                   {artwork.galleryLocations[0].shelf ? (
                     <span> {artwork.galleryLocations[0].shelf}</span>
                   ) : (
-                    <span>N/A</span>
+                    <span> N/A</span>
                   )}
                   , box
                   {artwork.galleryLocations[0].box ? (
