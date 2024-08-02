@@ -1,7 +1,7 @@
 const Error = ({status, msg}) => {
   return (
-    <article className="message is-danger">
-      <h2 className="message-header ">Oops, art block!</h2>
+    <article id="error"className="message is-danger">
+      <h2 className="message-header">OOPS, ART BLOCK!</h2>
       <section className="message-body">
         <p>Something went wrong...
             </p>
