@@ -207,3 +207,11 @@ margin-bottom: 5px;
     margin: 5px;
     box-sizing: border-box;
 }
+
+#main-left {
+    border: 1px solid black;
+    display: inline-flex;
+    padding: 5px;
+    margin: 5px;
+}
+
