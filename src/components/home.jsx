@@ -7,7 +7,7 @@ const Home = () => {
         Want to start curating your own exhibition artworks but do not know
         where to start? On Curate'M, short for Curate Them, right here you can
         explore art works from different regions, see any you like? Go ahead and
-        favourite them, even add them to your temporary exhibiton file!
+        add them to your temporary exhibiton file!
         Currently, Only UK and Us regions are open for business. Get start right
         now!
       </article>
