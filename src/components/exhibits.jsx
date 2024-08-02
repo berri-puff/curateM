@@ -84,7 +84,7 @@ const Exhibits = () => {
                   src={artwork.images.web.url}
                   alt="No description given"
                 ></img>
-                <p>The Cleveland Museum of Art Open Access API</p>
+                <p>© The Cleveland Museum of Art</p>
                 <p>ID: {artwork.id}</p>
                 <p>
                   Found in Cleveland Museum of Art, {artwork.department},
