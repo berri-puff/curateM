@@ -105,7 +105,7 @@ const USRegion = () => {
           return (
             <section className="card">
               <Link key={artwork.id} to={`/us/${artwork.id}`}>
-                <p className="card-header-title">{artwork.title}</p>
+                <p id="artwork-title"className="card-header-title">{artwork.title}</p>
                 <div className="card-image">
                   {imageUrl ? (
                     <img src={imageUrl} width={200} height="auto"></img>
