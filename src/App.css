@@ -200,3 +200,10 @@ margin-bottom: 5px;
     margin-bottom: 5px;
 }
 
+.intro {
+    font-size: larger;
+    font-weight:500;
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+}
