@@ -210,9 +210,9 @@ margin-bottom: 5px;
 }
 
 #main-left {
-margin: 5px;
+
     display: inline-flex;
-    padding: 5px;
+ 
 
     background-color:  rgb(203, 226, 203);
  
@@ -228,8 +228,8 @@ font-size: large;
 
 #main-right {
     display: inline-flex;
-    padding: 5px;
-margin: 5px;
+
+
  
  
 }
