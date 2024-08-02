@@ -5,6 +5,8 @@ import Error from "../error-page";
 import { FaTag } from "react-icons/fa";
 
 
+
+
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -55,6 +57,7 @@ const UKRegion = () => {
       );
     }
   }
+
 
   const handleCategory = (event) => {
     setCategoryFilter(event.target.value);
@@ -109,7 +112,7 @@ const UKRegion = () => {
   if (initialLoading) {
     return (
       <article>
-        <h1>UK Artworks</h1>
+        <h1 id="page-title"className="level-center">UK Artworks</h1>
         <progress class="progress is-small is-primary" max="5">
           5%
         </progress>
@@ -131,10 +134,10 @@ const UKRegion = () => {
   } else {
     return (
       <article>
-        <h1>UK Artworks</h1>
-        <form onSubmit={queryUkArtByFilter}>
-          <div className="select is-rounded is-primary">
-  <select onChange={handleCategory} defaultValue={categoryFilter} >
+        <h1 id="page-title">UK Artworks</h1>
+        <form id="filter"onSubmit={queryUkArtByFilter}>
+          <div className="select is-rounded is-primary mr-3">
+  <select id="filter-btns"  onChange={handleCategory} defaultValue={categoryFilter} >
             <option value="">Category</option>
             <option value={"THES48903"}>Prints</option>
             <option value={"THES48885"}>Textiles</option>
@@ -146,8 +149,8 @@ const UKRegion = () => {
           </select>
 
           </div>
-          <div className="select is-rounded is-primary">
-          <select onChange={handleLocation} defaultValue={locationFilter}>
+          <div  className="select is-rounded is-primary mr-3">
+          <select id="filter-btns" onChange={handleLocation} defaultValue={locationFilter}>
             <option value="">Place of Origin</option>
             <option value={"x32019"}>Great Britain</option>
             <option value={"x28849"}>France</option>
@@ -156,16 +159,16 @@ const UKRegion = () => {
             <option value={"x28927"}>Italy</option>
           </select>
           </div>
-          <button className="button is-normal is-rounded is-dark is-primary">Curate!</button>
+          <button id="curate-btn"className="button is-normal is-rounded is-light is-primary">Curate!</button>
         </form>
-  
-        {ukArtworks.map((artwork) => {
+  <section id="art-container">
+     {ukArtworks.map((artwork) => {
+    
           return (
-            
             <section className="card">
               <Link to={`/uk/${artwork.systemNumber}`} key={artwork.systemNumber}>
     <header className="card-header center">
-                  {artwork["_primaryTitle"] ?  <p className="card-header-title">{artwork["_primarytitle"]}</p> : <p className="card-header-title">Untitled</p>}  
+                  {artwork["_primaryTitle"] ?  <p id="artwork-title" className="card-header-title">{artwork["_primaryTitle"]}</p> : <p id="artwork-title" className="card-header-title">Untitled</p>}  
             </header>
 
             <div className="card-image">
@@ -188,16 +191,19 @@ const UKRegion = () => {
                
               
               <footer className="card-footer"> 
-                <p className="card-footer-item">© Victoria and Albert Museum, London</p>
- <p className="card-footer-item"><FaTag /> Category : {artwork.objectType}</p>
+                <p id="copyright"className="card-footer-item">© Victoria and Albert Museum, London</p>
+ <p id="category-tag"className="card-footer-item"><FaTag /> Category : {artwork.objectType}</p>
               </footer>
             </Link>
            </section>
           );
         })}
+  </section>
+   
 
         <button 
-        className="button is-medium is-rounded is-light is-link"
+        id="page-btn"
+        className="button is-medium is-rounded"
           aria-label="new batch button"
           onClick={() => {
             handleMoreBtn();

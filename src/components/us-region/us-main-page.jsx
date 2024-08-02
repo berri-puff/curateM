@@ -63,7 +63,7 @@ const USRegion = () => {
   if (loading) {
     return (
       <article>
-        <h1>US Artworks</h1>
+        <h1 id="page-title">US Artworks</h1>
         <progress className="progress is-small is-primary" max="100">
           20%
         </progress>
@@ -76,9 +76,9 @@ const USRegion = () => {
   } else {
     return (
       <article>
-        <h1>US Artworks</h1>
-        <form onSubmit={queryUsArtworks}>
-          <label htmlFor="keyword Search">
+        <h1 id="page-title">US Artworks</h1>
+        <form id="us-filter"onSubmit={queryUsArtworks} className="level">
+          <label id=""htmlFor="keyword Search" className="level-item has-text-centered">
             Search All US works
             <input
               className="input is-primary is-rounded w-150 "
@@ -92,19 +92,20 @@ const USRegion = () => {
 
           <button
             aria-label="search"
+            id="curate-btn"
             disabled={disableSearchBtn}
-            className="button is-normal is-rounded is-light is-primary"
+            className="button is-normal is-rounded is-light is-primary level-item has-text-centered"
           >
             Curate!
           </button>
         </form>
-
+        <section id="art-container">
         {filteredArtworks.map((artwork) => {
           const imageUrl = artwork?.alternate_images[0]?.print?.url;
           return (
             <section className="card">
               <Link key={artwork.id} to={`/us/${artwork.id}`}>
-                <p className="card-header-title">{artwork.title}</p>
+                <p id="artwork-title"className="card-header-title">{artwork.title}</p>
                 <div className="card-image">
                   {imageUrl ? (
                     <img src={imageUrl} width={200} height="auto"></img>
@@ -130,31 +131,33 @@ const USRegion = () => {
          
                
                   <section className="card-footer">
-                  <p className="card-footer-item">© The Cleveland Museum of Art</p>
-                  <p className="card-footer-item"><FaTag /> {artwork.type}</p>
+                  <p id="copyright" className="card-footer-item">© The Cleveland Museum of Art</p>
+                  <p id="category-tag"className="card-footer-item"><FaTag /> {artwork.type}</p>
                   </section>
              
               </Link>
             </section>
           );
         })}
-
+</section>
         <button
+        id="page-btn"
           aria-label="previous "
           onClick={() => {
             handlepreviousBatchBtn();
           }}
           disabled={minimum === 0 ? true : false}
-          className="button is-medium is-rounded is-light is-link mr-3"
+          className="button is-medium is-rounded mr-3"
         >
           Previous
         </button>
         <button
+        id="page-btn"
           aria-label="Next "
           onClick={() => {
             handleNextBatchBtn();
           }}
-          className="button is-medium is-rounded is-light is-link"
+          className="button is-medium is-rounded"
         >
           Next
         </button>

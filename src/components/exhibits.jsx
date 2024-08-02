@@ -6,18 +6,18 @@ const Exhibits = () => {
 
   if (exhibit.length === 0) {
     return (
-      <>
+      <article className="empty-exhibit">
         <h1>
           All your temporary artwork will be shown here, it is currently empty
           though!
         </h1>
         <p>Start exploring artworks!</p>
-      </>
+      </article>
     );
   } else
     return (
       <article>
-        <h1>Your very own curated exhibit!</h1>
+        <h1 id="page-title">Exhibition</h1>
        <section className="columns" id="exhibit-view">
 
 
@@ -25,7 +25,7 @@ const Exhibits = () => {
         {exhibit.map((artwork) => {
           if (artwork.hasOwnProperty("systemNumber")) {
             return (
-              <section className="column">
+              <section id="single-card"className="column">
                 {artwork.images != 0 ? (
                   <img
                   width={300}
@@ -54,7 +54,7 @@ const Exhibits = () => {
                   {artwork.galleryLocations[0].shelf ? (
                     <span> {artwork.galleryLocations[0].shelf}</span>
                   ) : (
-                    <span>N/A</span>
+                    <span> N/A</span>
                   )}
                   , box
                   {artwork.galleryLocations[0].box ? (
@@ -77,12 +77,14 @@ const Exhibits = () => {
             );
           } else {
             return (
-              <section className="column " id="exhibit-view">
+              <section id="single-card" className="column ">
                 <img
+                width={300}
+                height="auto"
                   src={artwork.images.web.url}
                   alt="No description given"
                 ></img>
-                <p>The Cleveland Museum of Art Open Access API</p>
+                <p>© The Cleveland Museum of Art</p>
                 <p>ID: {artwork.id}</p>
                 <p>
                   Found in Cleveland Museum of Art, {artwork.department},

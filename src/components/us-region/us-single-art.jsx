@@ -43,7 +43,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
-       
+       setAddBtnDisable(true)
         return currentExhibit
       } 
       else if (Array.isArray(currentExhibit)) {
@@ -53,6 +53,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [...currentExhibit, usSingleArtwork];
       } else if (!currentExhibit) {
         setAddBtnDisable(false);
@@ -61,6 +62,7 @@ const USSingleArt = () => {
           duration: 4000,
              position: 'bottom-center'
         });
+        setAddBtnDisable(true)
         return [usSingleArtwork];
       } else {
         setAddBtnDisable(false);
@@ -85,11 +87,11 @@ const USSingleArt = () => {
   }
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
-      <article>
+      <article id="single-art">
         <Toaster/>
-        <h2 className="title is-4"> {usSingleArtwork.title}</h2>
+        <h2 id="single-title"className="title is-2"> {usSingleArtwork.title}</h2>
         <p className="subtitle is-6">
-          By: {usSingleArtwork.creators[0].description}
+          By: {usSingleArtwork.creators.length != 0 ? <span>{usSingleArtwork.creators[0].description}</span>: <span>Unknown Artist</span>}
         </p>
 
   
@@ -110,6 +112,7 @@ const USSingleArt = () => {
             <div className="dropdown is-hoverable">
                 <div className="dropdown-trigger">
                   <button
+                  id="curate-btn"
                     className="button is-normal is-link is-light is-rounded"
                     aria-haspopup="true"
                     aria-controls="dropdown-menu4"
@@ -131,7 +134,7 @@ const USSingleArt = () => {
                 </div>
               </div>
           </section>
-          <section className="column is-vcentered">
+          <section className="column is-vcentered mb-5">
             <h2 className="title title-2">ABOUT:</h2>
             <p>{usSingleArtwork.description}</p>
             <h2 className="title title-2">History:</h2>
@@ -151,11 +154,7 @@ const USSingleArt = () => {
 
             </section>
            
-            {/* <h3>Want to find it?</h3>
-            <p>
-              In the department of {usSingleArtwork.department} -{" "}
-              {usSingleArtwork.current_location}
-            </p> */}
+      
           </section>
         </section>
       </article>

@@ -20,7 +20,7 @@ function App() {
   
       <ExhibitProvider>
       <Header/>
-      <Navigation/>
+
   <Routes>
     <Route path ="/" element={<Home/>}/>
     <Route path ="/exhibits" element={<Exhibits/>} />
