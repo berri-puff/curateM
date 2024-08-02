@@ -5,6 +5,8 @@ import Error from "../error-page";
 import { FaTag } from "react-icons/fa";
 
 
+
+
 const UKRegion = () => {
   const [ukArtworks, setUkArtworks] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -55,7 +57,7 @@ const UKRegion = () => {
       );
     }
   }
-  console.log(ukArtworks)
+
 
   const handleCategory = (event) => {
     setCategoryFilter(event.target.value);

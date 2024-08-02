@@ -89,7 +89,7 @@ const USSingleArt = () => {
     return (
       <article id="single-art">
         <Toaster/>
-        <h2 className="title is-4"> {usSingleArtwork.title}</h2>
+        <h2 id="single-title"className="title is-2"> {usSingleArtwork.title}</h2>
         <p className="subtitle is-6">
           By: {usSingleArtwork.creators.length != 0 ? <span>{usSingleArtwork.creators[0].description}</span>: <span>Unknown Artist</span>}
         </p>
@@ -134,7 +134,7 @@ const USSingleArt = () => {
                 </div>
               </div>
           </section>
-          <section className="column is-vcentered">
+          <section className="column is-vcentered mb-5">
             <h2 className="title title-2">ABOUT:</h2>
             <p>{usSingleArtwork.description}</p>
             <h2 className="title title-2">History:</h2>

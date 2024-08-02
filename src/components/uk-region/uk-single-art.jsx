@@ -87,9 +87,9 @@ const UKSingleArt = () => {
     return (
       <article id="single-art">
         {ukSingleArtwork.titles.length != 0 ? (
-          <h2 className="title is-2">{ukSingleArtwork.titles[0].title} </h2>
+          <h2 id="single-title" className="title is-2">{ukSingleArtwork.titles[0].title} </h2>
         ) : (
-          <h2 className="title is-2">Untitled Artwork</h2>
+          <h2 id="single-title"className="title is-2">Untitled Artwork</h2>
         )}
              <p className="subtitle is-6">
             
@@ -154,7 +154,7 @@ const UKSingleArt = () => {
               </div>
           </section>
 
-          <section className="column is-vcentered">
+          <section className="column is-vcentered mb-5">
           
             <h2 className="title title-2">About: </h2> 
         

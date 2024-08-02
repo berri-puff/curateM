@@ -13,7 +13,7 @@
     font-family: "Changa", sans-serif;
     font-size: xx-large;
     font-weight: bold;
-    color: rgb(23, 57, 7);
+    color: #5c3b44;
     margin: 3px;
     display: block;
     padding: 3px;
@@ -67,9 +67,9 @@ margin-bottom: 3px;
     padding: 3px
 }
 
-#nav-items:hover{
+/* #nav-items:hover{
     background-color: rgb(145, 213, 145);
-}
+} */
 
 #nav-bar:hover{
     background-color: rgb(145, 213, 145);
@@ -188,3 +188,15 @@ margin-bottom: 5px;
     justify-content: center;
     justify-items: center;
 }
+
+#header-info {
+    color:  rgb(145, 213, 145);
+    font-size: medium;
+    font-weight: 600;
+}
+
+#single-title{
+    text-decoration: underline solid  rgb(145, 213, 145);;
+    margin-bottom: 5px;
+}
+
