@@ -57,5 +57,7 @@ Once forked, cloned and installed dependecies, to run ```npm run dev``` command 
  
 
 ## SOURCES/COPYRIGHT
+All artwork information and images belong to Victoria & Albert Museum or Cleveland Museum of Art.
+
 
 
