@@ -11,7 +11,7 @@ So far, users without logging in can:
 
 - Nagivate through different regions to explore artworks from each area based API 
 
-- In the UK page, users can explore random artworks provided with no real order, users an interact to see more artwork by a button at the bottom of the page. US API calls for all the artwork, therefore takes longer time and always returns artwork in the same order.
+- In the UK page, users can explore random artworks provided with no real order, users can interact to see more artwork by a button at the bottom of the page. US API calls for all the artwork, therefore takes longer time and always returns artwork in the same order.
 
 - Users can choose from give presets to select for items of their interest on the UK page, where as in the US keyword based search criteria.
 
