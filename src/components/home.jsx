@@ -48,7 +48,7 @@ const Home = () => {
         <p id="main-text">
           Or, visit the US region to see what they have in store at The
           Cleveland Museum of Art. Looking for specific artworks? No problem,
-          simple input a keyword into the search bar and hit 'Curate!' see what
+          simply input a keyword into the search bar and hit 'Curate!' see what
           it gives you!
         </p>
       </section>
