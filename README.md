@@ -3,6 +3,8 @@
 ## ABOUT 
 Curate'M is a freelance project based on an imagined business situation to produce an web based app that uses museum/art based APIs to retrieve data across all types of artworks. Displays the datas associated with the said pieces, how or where user can visit in person as well as saving them to a temporary personal exhibition. 
 
+**FIND THE HOSTED SITE [HERE](https://curatem.netlify.app/)**
+
 ## USERS
 
 Currently, this project does not have backend associated to store the user data nor it allows users to create profiles and save their searches. Instead, it uses React State to hold the exhibit pieces temporary until the browser refreshes or the users closes window then opens up the same tab. 
