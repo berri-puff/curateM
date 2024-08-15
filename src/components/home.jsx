@@ -13,7 +13,8 @@ const Home = () => {
         now!
       </article>
       <section id="main-left">
-        <img
+        <img 
+        id="mainpage-image"
           src="/photos/nav.jpg"
           alt="screenshot of the main header Curate'M and on the left nav bar drop down"
           width={550}
@@ -33,6 +34,7 @@ const Home = () => {
           pieces originated from.
         </p>
         <img
+              id="mainpage-image"
           width={550}
           height={660}
           src="/photos/uk-filtered.jpg"
@@ -41,6 +43,7 @@ const Home = () => {
       </section>
       <section id="main-left">
         <img
+              id="mainpage-image"
           src="/photos/us-filter.jpg"
           width={550}
           height={660}
@@ -60,6 +63,7 @@ const Home = () => {
           exhibit. It does get removed from a single refresh, beware!
         </p>
         <img
+              id="mainpage-image"
           src="/photos/single-location.jpg"
           width={550}
           height={660}
@@ -68,6 +72,7 @@ const Home = () => {
       </section>
       <section id="main-left">
         <img
+              id="mainpage-image"
           src="/photos/exh.jpg"
           width={550}
           height={660}

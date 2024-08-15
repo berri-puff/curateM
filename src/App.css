@@ -212,8 +212,6 @@ margin-bottom: 5px;
 #main-left {
 
     display: inline-flex;
- 
-
     background-color:  rgb(203, 226, 203);
  
 }
@@ -228,7 +226,7 @@ font-size: large;
 
 #main-right {
     display: inline-flex;
-
+background-color: rgb(203, 226, 203);
 
  
  
@@ -266,4 +264,8 @@ text-decoration: overline rgb(59, 8, 8);;
     transform: scale(1.1);
     box-shadow: 3px 3px 3px 3px rgb(139, 178, 139);;
     border-radius: 40px;
+}
+
+#mainpage-image {
+    
 }
