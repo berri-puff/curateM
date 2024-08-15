@@ -13,7 +13,7 @@ const Home = () => {
       </article>
       <section id="main-left">
         <img
-          src="/photos/nav.jpg"
+          src="photos/nav.jpg"
           alt="screenshot of the main header Curate'M and on the left nav bar drop down"
           width={550}
           height={660}
@@ -34,13 +34,13 @@ const Home = () => {
         <img
           width={550}
           height={660}
-          src="/photos/uk-filtered.jpg"
+          src="photos/uk-filtered.jpg"
           alt="image of different artwork on this website from UK API sources"
         />
       </section>
       <section id="main-left">
         <img
-          src="/photos/us-filter.jpg"
+          src="photos/us-filter.jpg"
           width={550}
           height={660}
           alt="screenshot of different artworks from an US based API source with search bar with the word plates"
@@ -59,7 +59,7 @@ const Home = () => {
           exhibit. It does get removed from a single refresh, beware!
         </p>
         <img
-          src="/photos/single-location.jpg"
+          src="photos/single-location.jpg"
           width={550}
           height={660}
           alt="screenshot of two buttons, one indicated to users to add to their list and the other informs of the artwork location"
@@ -67,7 +67,7 @@ const Home = () => {
       </section>
       <section id="main-left">
         <img
-          src="/photos/exh.jpg"
+          src="photos/exh.jpg"
           width={550}
           height={660}
           alt="screenshot of artworks with minimal information in a row with 'Exhibition' on top of the page "
