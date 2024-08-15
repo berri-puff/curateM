@@ -13,6 +13,8 @@ The core functionalities of this web application is to provide users the oppurtu
 
 As they provide a generous number of artworks with complete information regarding the piece, including new pieces that are updated and maintined regularly. Athough the US API has a classfication of 'Types' allocated, the keyword search bar was integrated to avoid overwhelming the users with numerous claffications and potentially miss out on hidden work. Whereas the UK based API, it is a given preset that users can choose from allowing a more straightforward browsing experience. This is also due to not all artworks have compelte metadata from the V&A API. 
 
+This project is powered by a frontend-driven architecture to ensure a fast, seamless experience for users. All interactions and response alerts are handled efficiently on this page, without the need to retrieve data from a backend service
+
 So far, users without logging in can: 
 
 - Nagivate through different regions to explore artworks from each area based API 
@@ -32,11 +34,9 @@ So far, users without logging in can:
 
 ## TECH STACK 
 
-- There is no Backend as of current (August, 2024)
+- Main language: Javascript 
 
-- Javascript as the main language
-
-- React frontend framework
+- Frontend Framework: React
 
 - Axios calls externally sourced APIs
 
