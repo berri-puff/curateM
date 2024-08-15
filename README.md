@@ -7,7 +7,11 @@ Curate'M is a freelance project based on an imagined business situation to produ
 
 ## USERS
 
-Currently, this project does not have backend associated to store the user data nor it allows users to create profiles and save their searches. Instead, it uses React State to hold the exhibit pieces temporary until the browser refreshes or the users closes window then opens up the same tab. 
+The core functionalities of this web application is to provide users the oppurtunity to explore artworks from various different regions through a slick and simple design without barriers like account creation or complex filters, users can dive straight into the exploration experience. The site primarily pulls data from 
+- Victoria & Albert Museum, V&A (UK)
+- Cleveland Open Access API (US) 
+
+As they provide a generous number of artworks with complete information regarding the piece, including new pieces that are updated and maintined regularly. Athough the US API has a classfication of 'Types' allocated, the keyword search bar was integrated to avoid overwhelming the users with numerous claffications and potentially miss out on hidden work. Whereas the UK based API, it is a given preset that users can choose from allowing a more straightforward browsing experience. This is also due to not all artworks have compelte metadata from the V&A API. 
 
 So far, users without logging in can: 
 
@@ -23,7 +27,7 @@ So far, users without logging in can:
 
 - Able to see where the artwork is kept or displayed, where possible. Some artwork does not provide this.
 
-- Exhibit: Users can see all their artwork that they have added on a single page, with also minimal information - such as the artwork ID, location and storage information as well as a link to contact the respective museum in which they are kept in.
+- Exhibit: Users can see all their artwork that they have added on a single page, with also contains minimal information - such as the artwork ID, location and storage information as well as a link to contact the respective museum in which they are kept in.
 
 
 ## TECH STACK 
@@ -32,7 +36,7 @@ So far, users without logging in can:
 
 - Javascript as the main language
 
-- React frontend frame
+- React frontend framework
 
 - Axios calls externally sourced APIs
 
