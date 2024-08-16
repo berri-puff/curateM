@@ -60,15 +60,18 @@
   font-size: larger;
   color: rgb(90, 49, 49);
   padding: 3px;
+
 }
 
-/* #nav-items:hover{
-    background-color: rgb(145, 213, 145);
-} */
+#nav-items:hover{
+    background-color: hsl(171, 100%, 29%);
+    border-radius: 10px;
+ 
+}
 
 #nav-bar:hover {
-  background-color: rgb(145, 213, 145);
-  border-radius: 30px;
+  background-color: hsl(171, 100%, 29%);
+  border-radius: 10px;
 }
 
 #curate-btn {
@@ -184,7 +187,7 @@
 }
 
 #single-title {
-  text-decoration: underline solid rgb(145, 213, 145);
+  text-decoration: underline solid rgb(139, 178, 139);
   margin-bottom: 5px;
 }
 
@@ -207,7 +210,7 @@ display: flex;
 
 
 #example-image {
-  border: 5px rgb(139, 178, 139) dotted;
+  border: 5px hsl(171, 100%, 29%) dotted;
   box-sizing: border-box;
   margin: 20px;
   width: 750px;
@@ -259,3 +262,8 @@ height: auto;
   box-shadow: 3px 3px 3px 3px rgb(139, 178, 139);
   border-radius: 40px;
 }
+
+#add-exhibit-btn{
+    color: white;
+}
+

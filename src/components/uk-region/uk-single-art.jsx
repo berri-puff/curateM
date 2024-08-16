@@ -92,7 +92,7 @@ const UKSingleArt = () => {
           <h2 id="single-title"className="title is-2">Untitled Artwork</h2>
         )}
              <p className="subtitle is-6">
-            
+            By: 
               {ukSingleArtwork.artistMakerPerson.length != 0 ? (
                 <span>
                
@@ -117,6 +117,7 @@ const UKSingleArt = () => {
               © Victoria and Albert Museum, London
             </p>
             <button
+            id="add-exhibit-btn"
               className="button is-normal is-rounded is-dark is-primary mr-3"
               aria-label="add to exhibit"
               onClick={() => {
@@ -154,40 +155,48 @@ const UKSingleArt = () => {
               </div>
           </section>
 
+         
           <section className="column is-vcentered mb-5">
-          
-            <h2 className="title title-2">About: </h2> 
+          <article className="p-2 mb-2">
+             <h2 className="title title-2">About: </h2> 
         
             {ukSingleArtwork.summaryDescription ? (
               <p>{ukSingleArtwork.summaryDescription}</p>
             ) : (
               <p> {ukSingleArtwork.briefDescription}</p>
             )}
-           <h2 className="title title-2">History: </h2>
+          </article>
+           <article className="p-2 mb-2">
+             <h2 className="title title-2">History: </h2>
             {ukSingleArtwork.objectHistory != "" ? (
               <p> {ukSingleArtwork.objectHistory}</p>
             ) : (
               <p>Little to no history can be found for this artwork.</p>
             )}
-            Made in
+           </article>
+          <p>
+             Made in
             {ukSingleArtwork.placesOfOrigin.length != 0 ? (
               <span> {ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
             ) : (
               <span> Unknown</span>
             )}
+          </p>
+           
+
             <p>
               Estimated production date is 
               {ukSingleArtwork.productionDates.length != 0 ? (
                 <span> {ukSingleArtwork.productionDates[0].date.text}</span>
               ) : <span> not known</span>}
             </p>
-            <section className="column">
+
                  <p> 
                It was added to V&A collection in 
               {ukSingleArtwork.accessionYear ? <span> {ukSingleArtwork.accessionYear} </span> : <span> unknown date</span>}
             </p>
            
-            </section>
+   
           </section>
         </section>
       </article>
