@@ -108,7 +108,7 @@ console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
             <button
             id="add-exhibit-btn"
               aria-label="add to exhibit"
-              className="button is-normal is-rounded is-dark is-primary mr-3"
+              className="button is-normal is-rounded is-dark is-primary mr-3 mt-3"
               onClick={() => {
                 addToExhibit();
               }}
@@ -120,7 +120,7 @@ console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
               <div className="dropdown-trigger">
                 <button
                   id="curate-btn"
-                  className="button is-normal is-link is-light is-rounded"
+                  className="button is-normal is-link is-light is-rounded mt-3"
                   aria-haspopup="true"
                   aria-controls="dropdown-menu4"
                 >

@@ -118,7 +118,7 @@ const UKSingleArt = () => {
             </p>
             <button
             id="add-exhibit-btn"
-              className="button is-normal is-rounded is-dark is-primary mr-3"
+              className="button is-normal is-rounded is-dark is-primary mr-3 mt-3"
               aria-label="add to exhibit"
               onClick={() => {
                 addToExhibit();
@@ -131,7 +131,7 @@ const UKSingleArt = () => {
                 <div className="dropdown-trigger">
                   <button
                   id="curate-btn"
-                    className="button is-normal is-primary is-light is-rounded"
+                    className="button is-normal is-primary is-light is-rounded mt-3"
                     aria-haspopup="true"
                     aria-controls="dropdown-menu4"
                   >
