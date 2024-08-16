@@ -74,7 +74,7 @@ const USSingleArt = () => {
       }
     });
   };
-
+console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
   if (loading) {
     return (
       <progress id="loading-bar" className="progress is-primary" max="5">
@@ -103,7 +103,7 @@ const USSingleArt = () => {
 
         <section className="columns">
           <section className="column">
-            <img src={usSingleArtwork.images.web.url} />
+            <img src={usSingleArtwork.hasOwnProperty('web') ? usSingleArtwork.images.web.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019"} />
             <p className="subtitle is-7">© The Cleveland Museum of Art</p>
             <button
             id="add-exhibit-btn"
