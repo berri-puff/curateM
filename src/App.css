@@ -7,6 +7,7 @@
   text-align: center;
   font-family: "Changa", sans-serif;
   box-sizing: border-box;
+
 }
 
 #page-title {
@@ -177,8 +178,8 @@
 }
 
 #header-info {
-  color: rgb(145, 213, 145);
-  font-size: medium;
+  color: rgb(139, 178, 139);
+  font-size: large;
   font-weight: 600;
 }
 
@@ -200,31 +201,31 @@ display: flex;
    margin-left: 45px;
    margin-right: 45px;
    padding: 7px;
- 
+   align-items: center;
+ /* background-color: rgb(139, 178, 139);; */
 }
 
 
 #example-image {
-  border: 1px black solid;
-  /* display: flex; */
-  /* float: left; */
+  border: 5px rgb(139, 178, 139) dotted;
   box-sizing: border-box;
   margin: 20px;
   width: 750px;
   height: fit-content;
-  /* flex-direction: flex-start; */
 }
+
 #demo-text {
- 
-  border: 1px black solid;
-  display: flex;
+  display: inline-block;
+
   align-items: center;
+width: auto;
+height: auto;
   color: black;
   font-size: large;
-  width: 500px;
-  height: auto;
   padding: 5px;
   margin: 5px;
+  background-color:rgb(139, 178, 139) ;
+
 }
 
 #main-pointer {
