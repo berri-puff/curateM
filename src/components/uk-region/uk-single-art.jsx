@@ -108,7 +108,7 @@ const UKSingleArt = () => {
           <section className="column">
             {ukSingleArtwork.images.length != 0 ? (
               <img
-                src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/600,400/0/default.jpg`}
+                src={`https://framemark.vam.ac.uk/collections/${ukSingleArtwork.images[0]}/full/full/0/default.jpg`}
               ></img>
             ) : (
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
