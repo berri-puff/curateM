@@ -121,9 +121,9 @@ const USRegion = () => {
  <section className="card-content">
                   By
                   {artwork.creators.length != 0 ? (
-                    <span>{artwork.creators[0].description}</span>
+                    <span> {artwork.creators[0].description}</span>
                   ) : (
-                    <span>Unknown</span>
+                    <span> Unknown</span>
                   )}
                   <p>Currently in {artwork.current_location}</p>
                 </section>
