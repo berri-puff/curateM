@@ -11,7 +11,7 @@ The core functionalities of this web application is to provide users the oppurtu
 - Victoria & Albert Museum, V&A (UK)
 - Cleveland Open Access API (US) 
 
-As they provide a generous number of artworks with complete information regarding the piece, including new pieces that are updated and maintined regularly. Athough the US API has a classfication of 'Types' allocated, the keyword search bar was integrated to avoid overwhelming the users with numerous claffications and potentially miss out on hidden work. Whereas the UK based API, it is a given preset that users can choose from allowing a more straightforward browsing experience. This is also due to not all artworks have compelte metadata from the V&A API. 
+As they provide a generous number of artworks with complete information regarding the piece, including new pieces that are updated and maintained regularly. Athough the US API has a classfication of 'Types' allocated, the keyword search bar was integrated to avoid overwhelming the users with numerous claffications and potentially miss out on hidden work. Whereas the UK based API, it is a given preset that users can choose from allowing a more straightforward browsing experience. This is also due to not all artworks have compelte metadata from the V&A API. 
 
 This project is powered by a frontend-driven architecture to ensure a fast, seamless experience for users. All interactions and response alerts are handled efficiently on this page, without the need to retrieve data from a backend service
 
