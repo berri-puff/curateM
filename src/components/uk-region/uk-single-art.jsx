@@ -76,8 +76,8 @@ const UKSingleArt = () => {
 
   if (loadingState) {
     return (
-      <progress className="progress is-small is-primary" max="100">
-        20%
+      <progress id="loading-bar" className="progress is-primary" max="5">
+  
       </progress>
     );
   } else if (ukSingleArtwork.length === 0 && error) {

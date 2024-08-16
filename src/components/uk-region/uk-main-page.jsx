@@ -113,8 +113,7 @@ const UKRegion = () => {
     return (
       <article>
         <h1 id="page-title"className="level-center">UK Artworks</h1>
-        <progress class="progress is-small is-primary" max="5">
-          5%
+        <progress id="loading-bar" className="progress is-primary" max="5">
         </progress>
       </article>
     );
@@ -204,7 +203,7 @@ const UKRegion = () => {
         <button 
         id="page-btn"
         className="button is-medium is-rounded"
-          aria-label="new batch button"
+          aria-label="more artwork button"
           onClick={() => {
             handleMoreBtn();
           }}

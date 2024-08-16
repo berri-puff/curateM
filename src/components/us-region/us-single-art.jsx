@@ -77,8 +77,7 @@ const USSingleArt = () => {
 
   if (loading) {
     return (
-      <progress className="progress is-small is-primary" max="100">
-        20%
+      <progress id="loading-bar" className="progress is-primary" max="5">
       </progress>
     );
   } else if (error && usSingleArtwork.length === 0) {
