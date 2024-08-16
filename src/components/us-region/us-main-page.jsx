@@ -64,8 +64,8 @@ const USRegion = () => {
     return (
       <article>
         <h1 id="page-title">US Artworks</h1>
-        <progress className="progress is-small is-primary" max="100">
-          20%
+        <progress id="loading-bar" className="progress is-primary" max="5">
+    
         </progress>
       </article>
     );
@@ -121,9 +121,9 @@ const USRegion = () => {
  <section className="card-content">
                   By
                   {artwork.creators.length != 0 ? (
-                    <span>{artwork.creators[0].description}</span>
+                    <span> {artwork.creators[0].description}</span>
                   ) : (
-                    <span>Unknown</span>
+                    <span> Unknown</span>
                   )}
                   <p>Currently in {artwork.current_location}</p>
                 </section>
