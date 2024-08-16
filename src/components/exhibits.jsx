@@ -30,7 +30,7 @@ const Exhibits = () => {
                   <img
                   width={300}
                   height="auto"
-                    src={`https://framemark.vam.ac.uk/collections/${artwork.images[0]}/full/600,400/0/default.jpg`}
+                    src={`https://framemark.vam.ac.uk/collections/${artwork.images[0]}/full/full/0/default.jpg`}
                     alt={
                       artwork.physicalDescription ? (
                         <p>{artwork.physicalDescription}</p>
