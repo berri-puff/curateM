@@ -259,8 +259,9 @@ height: auto;
 }
 
 #location-pointer:hover {
-  transform: scale(1.1);
-  box-shadow: 3px 3px 3px 3px rgb(139, 178, 139);
+
+  box-shadow: 0 4px 8px 0  #5c3b44, 0 6px 20px 0 #5c3b44;
+ 
   border-radius: 40px;
 }
 
