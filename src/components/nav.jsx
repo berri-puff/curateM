@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="navbar-item is-hoverable">
         <a id="nav-items">Navigation <PiPaintBrushHouseholdFill />
         </a>
-        <div className="navbar-dropdown">
+        <div id="nav-background"className="navbar-dropdown">
           <Link to="/uk" aria-hidden="true" id="nav-items"className="navbar-item">
             UK Region
           </Link>
