@@ -103,7 +103,7 @@ const USRegion = () => {
         {filteredArtworks.map((artwork) => {
           const imageUrl = artwork?.alternate_images[0]?.print?.url;
           return (
-            <section className="card">
+            <section id="artworks-box" className="card">
               <Link key={artwork.id} to={`/us/${artwork.id}`}>
                 <p id="artwork-title"className="card-header-title">{artwork.title}</p>
                 <div className="card-image">
