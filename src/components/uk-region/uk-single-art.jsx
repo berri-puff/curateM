@@ -173,7 +173,7 @@ const UKSingleArt = () => {
             )}
           </article>
            <article className="p-2 mb-2 has-text-black">
-             <h2 className="title title-2">History: </h2>
+             <h2 className="title title-2 has-text-black">History: </h2>
             {ukSingleArtwork.objectHistory != "" ? (
               <p> {ukSingleArtwork.objectHistory}</p>
             ) : (

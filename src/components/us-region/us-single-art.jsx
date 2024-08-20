@@ -86,7 +86,7 @@ const USSingleArt = () => {
   }
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
-      <article id="single-art" >
+      <article id="single-art" className='has-text-black'>
  
         <h2 id="single-title" className="title is-2">
           {" "}
