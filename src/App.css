@@ -194,6 +194,7 @@ body {
 #single-title {
   text-decoration: underline solid rgb(139, 178, 139);
   margin-bottom: 5px;
+  color: black;
 }
 
 .intro {

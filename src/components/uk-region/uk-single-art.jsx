@@ -93,7 +93,7 @@ const UKSingleArt = () => {
         ) : (
           <h2 id="single-title"className="title is-2">Untitled Artwork</h2>
         )}
-             <p className="subtitle is-6">
+             <p className="subtitle is-6 has-text-black">
             By: 
               {ukSingleArtwork.artistMakerPerson.length != 0 ? (
                 <span>
@@ -114,7 +114,7 @@ const UKSingleArt = () => {
             ) : (
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" />
             )}
-            <p className="subtitle is-7">
+            <p className="subtitle is-7 has-text-black">
               © Victoria and Albert Museum, London
             </p> 
             <Toaster  containerStyle={{
@@ -163,8 +163,8 @@ const UKSingleArt = () => {
 
          
           <section className="column is-vcentered mb-5">
-          <article className="p-2 mb-2">
-             <h2 className="title title-2">About: </h2> 
+          <article className="p-2 mb-2 has-text-black">
+             <h2 className="title title-2 has-text-black">About: </h2> 
         
             {ukSingleArtwork.summaryDescription ? (
               <p>{ukSingleArtwork.summaryDescription}</p>
@@ -180,7 +180,7 @@ const UKSingleArt = () => {
               <p>Little to no history can be found for this artwork.</p>
             )}
            </article>
-          <p>
+          <p >
              Made in
             {ukSingleArtwork.placesOfOrigin.length != 0 ? (
               <span> {ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
