@@ -25,7 +25,7 @@ const Exhibits = () => {
         {exhibit.map((artwork) => {
           if (artwork.hasOwnProperty("systemNumber")) {
             return (
-              <section id="single-card"className="column">
+              <section id="single-card"className="column has-text-black">
                 {artwork.images != 0 ? (
                   <img
                   width={300}
@@ -77,7 +77,7 @@ const Exhibits = () => {
             );
           } else {
             return (
-              <section id="single-card" className="column ">
+              <section id="single-card" className="column has-text-black">
                 <img
                 width={300}
                 height="auto"
