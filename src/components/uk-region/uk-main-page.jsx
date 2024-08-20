@@ -162,7 +162,6 @@ const UKRegion = () => {
         </form>
   <section id="art-container">
      {ukArtworks.map((artwork) => {
-    
           return (
             <section id="artworks-box"className="card">
               <Link to={`/uk/${artwork.systemNumber}`} key={artwork.systemNumber}>

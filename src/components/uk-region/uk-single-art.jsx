@@ -60,6 +60,7 @@ const UKSingleArt = () => {
         toast.success("Artwork added to your list successfully!", {
           duration: 4000,
              position: 'bottom-center'
+             
         });
         setAddBtnDisable(true)
         return [ukSingleArtwork];
@@ -86,6 +87,7 @@ const UKSingleArt = () => {
   } else
     return (
       <article id="single-art">
+    
         {ukSingleArtwork.titles.length != 0 ? (
           <h2 id="single-title" className="title is-2">{ukSingleArtwork.titles[0].title} </h2>
         ) : (
@@ -95,7 +97,6 @@ const UKSingleArt = () => {
             By: 
               {ukSingleArtwork.artistMakerPerson.length != 0 ? (
                 <span>
-               
                   {ukSingleArtwork.artistMakerPerson[0].name["text"]}
                 </span>
               ) : (
@@ -103,7 +104,7 @@ const UKSingleArt = () => {
               )}
             </p>
 
-            <Toaster/> 
+         
         <section className="columns">
           <section className="column">
             {ukSingleArtwork.images.length != 0 ? (
@@ -127,7 +128,11 @@ const UKSingleArt = () => {
             >
               Add To My Exhibit
             </button>
+            <Toaster  containerStyle={{
+    position: 'relative',
+  }}/>
             <div className="dropdown is-hoverable">
+             
                 <div className="dropdown-trigger">
                   <button
                   id="curate-btn"

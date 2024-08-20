@@ -87,7 +87,7 @@ console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
   if (usSingleArtwork.length != 0 && loading === false) {
     return (
       <article id="single-art">
-        <Toaster />
+
         <h2 id="single-title" className="title is-2">
           {" "}
           {usSingleArtwork.title}
@@ -116,6 +116,9 @@ console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
             >
               Add To My Exhibit
             </button>
+            <Toaster  containerStyle={{
+    position: 'relative',
+  }}/>
             <div className="dropdown is-hoverable">
               <div className="dropdown-trigger">
                 <button
