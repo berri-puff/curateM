@@ -105,7 +105,7 @@ const USRegion = () => {
           return (
             <article id="artworks-box" className="card" key={filteredArtworks.id}>
               <Link to={`/us/${artwork.id}`}>
-                <p id="artwork-title"className="card-header-title">{artwork.title}</p>
+                <p id="artwork-title"className="card-header-title has-text-black">{artwork.title}</p>
                 <div className="card-image">
                   {imageUrl ? (
                     <img src={imageUrl} width={200} height="auto"></img>

@@ -89,10 +89,9 @@ const USSingleArt = () => {
       <article id="single-art" className='has-text-black'>
  
         <h2 id="single-title" className="title is-2">
-          {" "}
           {usSingleArtwork.title}
         </h2>
-        <p className="subtitle is-6">
+        <p className="subtitle is-6 has-text-black">
           By:{" "}
           {usSingleArtwork.creators.length != 0 ? (
             <span>{usSingleArtwork.creators[0].description}</span>
@@ -149,12 +148,12 @@ const USSingleArt = () => {
           
           <section className="column is-vcentered mb-5">
             <article className="p-2 mb-2">
-              <h2 className="title title-2">ABOUT:</h2>
+              <h2 className="title title-2 has-text-black">ABOUT:</h2>
               <p>{usSingleArtwork.description}</p>
             </article>
 
             <article className="p-2 mb-2">
-              <h2 className="title title-2">History:</h2>
+              <h2 className="title title-2 has-text-black">History:</h2>
               <p>
                 This piece of work was added to the collection in the year
                 <span> {splitTime(usSingleArtwork.accession_date)}</span>, falls
