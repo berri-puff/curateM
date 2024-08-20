@@ -87,8 +87,8 @@ const Exhibits = () => {
                 <p>© The Cleveland Museum of Art</p>
                 <p>ID: {artwork.id}</p>
                 <p>
-                  Found in Cleveland Museum of Art, {artwork.department},
-                  {artwork.currentLocation}
+                  Found in Cleveland Museum of Art, {artwork.department}
+                  {artwork.currentLocation ? <span>,artwork.currentLocation </span>: null}
                 </p>
 
                 <a

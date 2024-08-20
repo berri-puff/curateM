@@ -74,7 +74,7 @@ const USSingleArt = () => {
       }
     });
   };
-console.log(usSingleArtwork.hasOwnProperty('web'), 'object or array?')
+
   if (loading) {
     return (
       <progress id="loading-bar" className="progress is-primary" max="5">
