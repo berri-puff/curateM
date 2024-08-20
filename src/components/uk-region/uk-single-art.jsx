@@ -172,7 +172,7 @@ const UKSingleArt = () => {
               <p> {ukSingleArtwork.briefDescription}</p>
             )}
           </article>
-           <article className="p-2 mb-2">
+           <article className="p-2 mb-2 has-text-black">
              <h2 className="title title-2">History: </h2>
             {ukSingleArtwork.objectHistory != "" ? (
               <p> {ukSingleArtwork.objectHistory}</p>
@@ -180,7 +180,7 @@ const UKSingleArt = () => {
               <p>Little to no history can be found for this artwork.</p>
             )}
            </article>
-          <p >
+          <p className='has-text-black'>
              Made in
             {ukSingleArtwork.placesOfOrigin.length != 0 ? (
               <span> {ukSingleArtwork.placesOfOrigin[0].place["text"]}</span>
@@ -190,14 +190,14 @@ const UKSingleArt = () => {
           </p>
            
 
-            <p>
+            <p  className='has-text-black'>
               Estimated production date is 
               {ukSingleArtwork.productionDates.length != 0 ? (
                 <span> {ukSingleArtwork.productionDates[0].date.text}</span>
               ) : <span> not known</span>}
             </p>
 
-                 <p> 
+                 <p  className='has-text-black'> 
                It was added to V&A collection in 
               {ukSingleArtwork.accessionYear ? <span> {ukSingleArtwork.accessionYear} </span> : <span> unknown date</span>}
             </p>
