@@ -128,7 +128,7 @@ const USSingleArt = () => {
                   aria-controls="dropdown-menu4"
                 >
                   <p>
-                    Where to find it <IoMdArrowDropdown />
+                    Where to find it <IoMdArrowDropdown/>
                   </p>
                 </button>
               </div>
