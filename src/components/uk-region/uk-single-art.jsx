@@ -87,7 +87,7 @@ const UKSingleArt = () => {
   } else
     return (
       <article id="single-art">
-    
+  
         {ukSingleArtwork.titles.length != 0 ? (
           <h2 id="single-title" className="title is-2">{ukSingleArtwork.titles[0].title} </h2>
         ) : (
@@ -116,7 +116,10 @@ const UKSingleArt = () => {
             )}
             <p className="subtitle is-7">
               © Victoria and Albert Museum, London
-            </p>
+            </p> 
+            <Toaster  containerStyle={{
+    position: 'relative',
+  }}/>
             <button
             id="add-exhibit-btn"
               className="button is-normal is-rounded is-dark is-primary mr-3 mt-3"
@@ -128,9 +131,7 @@ const UKSingleArt = () => {
             >
               Add To My Exhibit
             </button>
-            <Toaster  containerStyle={{
-    position: 'relative',
-  }}/>
+        
             <div className="dropdown is-hoverable">
              
                 <div className="dropdown-trigger">
