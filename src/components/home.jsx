@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Home = () => {
   return (
     <main>
-      <article className="intro">
+      <article className="intro hax-text-black">
         Want to start curating your own exhibition artworks but do not know
         where to start? On Curate'M, short for Curate Them, right here you can
         explore art works from different regions, see any you like? Go ahead and

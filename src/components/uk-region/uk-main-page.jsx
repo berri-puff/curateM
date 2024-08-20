@@ -166,7 +166,7 @@ const UKRegion = () => {
             <article id="artworks-box"className="card">
               <Link to={`/uk/${artwork.systemNumber}`} key={artwork.systemNumber}>
     <header className="card-header center has-text-black">
-                  {artwork["_primaryTitle"] ?  <p id="artwork-title" className="card-header-title">{artwork["_primaryTitle"]}</p> : <p id="artwork-title" className="card-header-title">Untitled</p>}  
+                  {artwork["_primaryTitle"] ?  <p id="artwork-title" className="card-header-title has-text-black">{artwork["_primaryTitle"]}</p> : <p id="artwork-title" className="card-header-title has-text-black">Untitled</p>}  
             </header>
 
             <div className="card-image">
