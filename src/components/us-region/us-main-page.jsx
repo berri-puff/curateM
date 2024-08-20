@@ -125,7 +125,7 @@ const USRegion = () => {
                   ) : (
                     <span> Unknown</span>
                   )}
-                  <p>Currently in {artwork.current_location}</p>
+                  <p>Currently in {artwork.current_location ? <span>artwork.current_location</span> : <span>Unknown</span>}</p>
                 </section>
                 
          
