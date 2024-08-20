@@ -103,7 +103,7 @@ const USSingleArt = () => {
         <section className="columns">
           <section className="column">
             <img src={usSingleArtwork.hasOwnProperty('web') ? usSingleArtwork.images.web.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019"} />
-            <p className="subtitle is-7">© The Cleveland Museum of Art</p>
+            <p className="subtitle is-7 has-text-black">© The Cleveland Museum of Art</p>
             <Toaster  containerStyle={{
     position: 'relative',
   }}/>
